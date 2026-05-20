@@ -464,6 +464,7 @@
     .p-features li::before { content: '✓'; color: var(--gold); font-weight: 800; flex-shrink: 0; }
 
     .addons-wrap { background: var(--card); border: 1px solid var(--border); overflow: hidden; transition: border-color 0.3s; border-radius: var(--radius); }
+    .addons-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
     .addons-wrap:hover { border-color: rgba(245,245,240,0.15); }
     .addons-head { padding: 22px 26px; border-bottom: 1px solid var(--border); display: flex; align-items: baseline; gap: 12px; }
     .addons-head h3 { font-family: 'Cabinet Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--text); }
@@ -619,6 +620,39 @@
       .pricing-grid { grid-template-columns: 1fr; }
       .case-box { padding: 30px 22px; }
       .contact-panel { padding: 30px 22px; }
+
+      /* Stack add-ons table as cards on mobile */
+      .addons-head { padding: 18px 20px; flex-direction: column; align-items: flex-start; gap: 4px; }
+      .addons-head h3 { font-size: 1rem; }
+      .addons-head span { font-size: 0.78rem; }
+      .addons-table thead { display: none; }
+      .addons-table, .addons-table tbody, .addons-table tr, .addons-table td { display: block; width: 100%; }
+      .addons-table tr {
+        padding: 16px 20px;
+        border-bottom: 1px solid var(--border);
+        position: relative;
+      }
+      .addons-table tr:last-child { border-bottom: none; }
+      .addons-table td {
+        padding: 0; border-bottom: none; font-size: 0.875rem;
+        background: transparent !important;
+      }
+      .addons-table td:first-child {
+        font-family: 'Cabinet Grotesk', sans-serif;
+        font-weight: 700; color: var(--text);
+        font-size: 0.95rem; margin-bottom: 4px;
+        padding-right: 70px;
+      }
+      .addons-table td:nth-child(2) {
+        color: var(--muted); font-size: 0.82rem; line-height: 1.5;
+        padding-right: 70px;
+      }
+      .addons-table td:last-child {
+        position: absolute; top: 16px; right: 20px;
+        text-align: right; font-family: 'DM Mono', monospace;
+        color: var(--gold); font-weight: 700; font-size: 0.95rem;
+      }
+      .addons-table tbody tr:hover td { background: transparent; }
     }
     @media (hover: none) { .tilt { transform: none !important; } }
   </style>
@@ -770,17 +804,19 @@
     </div>
     <div class="addons-wrap reveal">
       <div class="addons-head"><h3>Complexity Add-ons</h3><span>Additional charges based on technical requirements</span></div>
-      <table class="addons-table">
-        <thead><tr><th>Add-on</th><th>Description</th><th>Price</th></tr></thead>
-        <tbody>
-          <tr><td>Login-gated content</td><td>Sites requiring authentication / session cookies</td><td>+$50</td></tr>
-          <tr><td>Anti-bot / CAPTCHA bypass</td><td>Cloudflare, reCAPTCHA, or similar protections</td><td>+$40</td></tr>
-          <tr><td>JavaScript-heavy SPA</td><td>React / Vue / Angular dynamic rendering</td><td>+$25</td></tr>
-          <tr><td>Email verification</td><td>Verify each email address for deliverability</td><td>+$25</td></tr>
-          <tr><td>Recurring / scheduled delivery</td><td>Weekly or monthly automated data refresh</td><td>+$25/run</td></tr>
-          <tr><td>Rush delivery (&lt;12 hours)</td><td>For time-sensitive projects</td><td>+$25</td></tr>
-        </tbody>
-      </table>
+      <div class="addons-scroll">
+        <table class="addons-table">
+          <thead><tr><th>Add-on</th><th>Description</th><th>Price</th></tr></thead>
+          <tbody>
+            <tr><td>Login-gated content</td><td>Sites requiring authentication / session cookies</td><td>+$50</td></tr>
+            <tr><td>Anti-bot / CAPTCHA bypass</td><td>Cloudflare, reCAPTCHA, or similar protections</td><td>+$40</td></tr>
+            <tr><td>JavaScript-heavy SPA</td><td>React / Vue / Angular dynamic rendering</td><td>+$25</td></tr>
+            <tr><td>Email verification</td><td>Verify each email address for deliverability</td><td>+$25</td></tr>
+            <tr><td>Recurring / scheduled delivery</td><td>Weekly or monthly automated data refresh</td><td>+$25/run</td></tr>
+            <tr><td>Rush delivery (&lt;12 hours)</td><td>For time-sensitive projects</td><td>+$25</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </section>
