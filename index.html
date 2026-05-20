@@ -634,6 +634,129 @@
     .cta-arr { margin-left: auto; color: var(--muted2); font-size: 1rem; transition: transform 0.25s, color 0.25s; }
     .cta-row:hover .cta-arr { transform: translateX(5px); color: var(--gold); }
 
+    /* ══════════════════════════════
+       CONTACT FORM
+    ══════════════════════════════ */
+    .contact-form { display: flex; flex-direction: column; gap: 18px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-group { display: flex; flex-direction: column; gap: 7px; position: relative; }
+    .form-group label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem; color: var(--muted);
+      letter-spacing: 0.12em; text-transform: uppercase;
+      font-weight: 600;
+    }
+    .form-group label .req { color: var(--text); margin-left: 2px; opacity: 0.7; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 13px 16px;
+      color: var(--text);
+      font-size: 0.92rem;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.25s ease;
+      width: 100%;
+      outline: none;
+    }
+    .form-group textarea {
+      resize: vertical; min-height: 110px; line-height: 1.55;
+      font-family: 'Inter', sans-serif;
+    }
+    .form-group select {
+      appearance: none; -webkit-appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3e%3cpath d='M1 1.5L6 6.5L11 1.5' stroke='%238A8A90' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 42px;
+      cursor: pointer;
+    }
+    .form-group select option {
+      background: var(--card); color: var(--text);
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--muted2);
+    }
+    .form-group input:hover,
+    .form-group select:hover,
+    .form-group textarea:hover {
+      border-color: var(--border2);
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+      background: rgba(245,245,240,0.015);
+      box-shadow: 0 0 0 3px rgba(245,245,240,0.06);
+    }
+    .form-group input:focus + .focus-line,
+    .form-group textarea:focus + .focus-line {
+      transform: scaleX(1);
+    }
+    .form-submit {
+      margin-top: 8px;
+      width: 100%;
+      justify-content: center;
+      font-size: 0.95rem;
+      padding: 16px 24px;
+      display: inline-flex; align-items: center; gap: 10px;
+      cursor: pointer; border: none;
+      background: var(--gold); color: #0A0A0A;
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 700; letter-spacing: 0.02em;
+      border-radius: var(--radius-pill);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 28px var(--gold-glow);
+      position: relative;
+      overflow: hidden;
+    }
+    .form-submit:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 40px rgba(245,245,240,0.28);
+    }
+    .form-submit:active:not(:disabled) {
+      transform: translateY(0);
+    }
+    .form-submit:disabled {
+      opacity: 0.6; cursor: not-allowed;
+    }
+    .form-submit .spinner {
+      display: none; width: 16px; height: 16px;
+      border: 2px solid rgba(10,10,10,0.3);
+      border-top-color: #0A0A0A;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .form-submit.loading .submit-text { opacity: 0; }
+    .form-submit.loading .spinner { display: inline-block; position: absolute; }
+    .form-status {
+      padding: 16px 18px; border-radius: var(--radius-sm);
+      font-size: 0.88rem; text-align: center;
+      display: none; margin-top: 4px;
+      font-family: 'Inter', sans-serif;
+    }
+    .form-status.success {
+      display: block;
+      background: rgba(16,185,129,0.08); color: var(--green);
+      border: 1px solid rgba(16,185,129,0.25);
+    }
+    .form-status.error {
+      display: block;
+      background: rgba(239,68,68,0.08); color: #ef4444;
+      border: 1px solid rgba(239,68,68,0.25);
+    }
+    .form-note {
+      font-size: 0.78rem; color: var(--muted);
+      text-align: center; margin-top: 6px;
+      font-family: 'DM Mono', monospace;
+    }
+    .form-note a { color: var(--gold); transition: opacity 0.2s; }
+    .form-note a:hover { opacity: 0.75; }
+
     /* Footer */
     footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32px 28px; }
     .footer-inner { max-width: var(--max); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
@@ -669,6 +792,9 @@
       .pricing-grid { grid-template-columns: 1fr; }
       .case-box { padding: 30px 22px; }
       .contact-panel { padding: 30px 22px; }
+
+      /* Form: stack 2-col layout on mobile */
+      .form-row { grid-template-columns: 1fr; gap: 18px; }
 
       /* Stack add-ons table as cards on mobile */
       .addons-head { padding: 18px 20px; flex-direction: column; align-items: flex-start; gap: 4px; }
@@ -721,7 +847,7 @@
       <a href="#process">Process</a>
       <a href="#contact">Contact</a>
     </div>
-    <a href="mailto:hardik@hardiksingh.org?subject=Project%20Inquiry&body=Hi%20Hardik%2C%20I%27d%20like%20to%20discuss%20a%20project." class="nav-cta">Get a Free Quote</a>
+    <a href="#contact" class="nav-cta">Get a Free Quote</a>
     <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
   </div>
 </nav>
@@ -731,7 +857,7 @@
   <a href="#case-study"   onclick="closeMobile()">Case Study</a>
   <a href="#process"      onclick="closeMobile()">Process</a>
   <a href="#contact"      onclick="closeMobile()">Contact</a>
-  <a href="mailto:hardik@hardiksingh.org?subject=Project%20Inquiry" class="btn btn-primary" style="justify-content:center;">📩 Get a Free Quote</a>
+  <a href="#contact" onclick="closeMobile()" class="btn btn-primary" style="justify-content:center;">📩 Get a Free Quote</a>
 </div>
 
 <!-- ════ HERO ════ -->
@@ -748,8 +874,8 @@
       <div class="hero-tagline" id="tagline"></div>
       <div class="hero-sub">I extract structured, ready-to-use business data from any website - delivered as Excel or CSV, on time, every time. No messy rows. No missing fields.</div>
       <div class="hero-btns">
-        <a href="mailto:hardik@hardiksingh.org?subject=Project%20Quote%20Request&body=Hi%20Hardik%2C%20I%27d%20like%20a%20quote%20for%20the%20following%3A%0A%0AWebsite%2Fniche%3A%20%0ACity%2FRegion%3A%20%0AFields%20needed%3A%20%0ARecord%20count%3A%20" class="btn btn-primary">📩 Get a Free Quote</a>
-        <a href="mailto:hardik@hardiksingh.org?subject=Free%20Sample%20Request&body=Hi%20Hardik%2C%20I%27d%20like%20a%20free%20data%20sample." class="btn btn-ghost">📄 Request Free Sample</a>
+        <a href="#contact" class="btn btn-primary">📩 Get a Free Quote</a>
+        <a href="#contact" class="btn btn-ghost" data-prefill-sample="1">📄 Request Free Sample</a>
       </div>
     </div>
     <div class="hero-visual">
@@ -829,26 +955,26 @@
         <div class="p-tier">Starter</div><div class="p-records">500 Records</div>
         <div class="p-price"><sup>$</sup>50</div><div class="p-per">$0.10 per record</div>
         <ul class="p-features"><li>Single source / platform</li><li>Excel + CSV delivery</li><li>Quality check included</li><li>24–48 hr turnaround</li></ul>
-        <a href="mailto:hardik@hardiksingh.org?subject=Quote%20-%20500%20Records&body=Hi%20Hardik%2C%20I%27d%20like%20to%20get%20500%20records." class="btn btn-ghost" style="width:100%;justify-content:center;">📩 Get a Quote</a>
+        <a href="#contact" class="btn btn-ghost" style="width:100%;justify-content:center;" data-prefill-records="500-1000" data-prefill-tier="Starter (500 records)">📩 Get a Quote</a>
       </div>
       <div class="price-card popular tilt reveal reveal-delay-1">
         <div class="pop-badge">MOST POPULAR</div>
         <div class="p-tier">Growth</div><div class="p-records">1,000 Records</div>
         <div class="p-price"><sup>$</sup>80</div><div class="p-per">$0.08 per record</div>
         <ul class="p-features"><li>1–2 sources / platforms</li><li>Excel + CSV delivery</li><li>Quality check included</li><li>24 hr turnaround</li></ul>
-        <a href="mailto:hardik@hardiksingh.org?subject=Quote%20-%201000%20Records&body=Hi%20Hardik%2C%20I%27d%20like%20to%20get%201%2C000%20records." class="btn btn-primary" style="width:100%;justify-content:center;">📩 Get a Quote</a>
+        <a href="#contact" class="btn btn-primary" style="width:100%;justify-content:center;" data-prefill-records="1000-2500" data-prefill-tier="Growth (1,000 records)">📩 Get a Quote</a>
       </div>
       <div class="price-card tilt reveal reveal-delay-2">
         <div class="p-tier">Pro</div><div class="p-records">2,500 Records</div>
         <div class="p-price"><sup>$</sup>130</div><div class="p-per">$0.052 per record</div>
         <ul class="p-features"><li>Multiple sources</li><li>Excel + CSV delivery</li><li>Quality check included</li><li>24–48 hr turnaround</li></ul>
-        <a href="mailto:hardik@hardiksingh.org?subject=Quote%20-%202500%20Records&body=Hi%20Hardik%2C%20I%27d%20like%20to%20get%202%2C500%20records." class="btn btn-ghost" style="width:100%;justify-content:center;">📩 Get a Quote</a>
+        <a href="#contact" class="btn btn-ghost" style="width:100%;justify-content:center;" data-prefill-records="2500-5000" data-prefill-tier="Pro (2,500 records)">📩 Get a Quote</a>
       </div>
       <div class="price-card tilt reveal reveal-delay-3">
         <div class="p-tier">Scale</div><div class="p-records">5,000 Records</div>
         <div class="p-price"><sup>$</sup>220</div><div class="p-per">$0.044 per record</div>
         <ul class="p-features"><li>Multiple sources</li><li>Excel + CSV delivery</li><li>Quality check included</li><li>48–72 hr turnaround</li></ul>
-        <a href="mailto:hardik@hardiksingh.org?subject=Quote%20-%205000%20Records&body=Hi%20Hardik%2C%20I%27d%20like%20to%20get%205%2C000%20records." class="btn btn-ghost" style="width:100%;justify-content:center;">📩 Get a Quote</a>
+        <a href="#contact" class="btn btn-ghost" style="width:100%;justify-content:center;" data-prefill-records="5000-plus" data-prefill-tier="Scale (5,000 records)">📩 Get a Quote</a>
       </div>
     </div>
     <div class="addons-wrap reveal">
@@ -962,18 +1088,56 @@
       </div>
       <div class="contact-panel reveal">
         <h3>Start a Project</h3>
-        <p>Not sure where to begin? Pick the option that fits your situation.</p>
-        <div class="cta-list">
-          <a href="mailto:hardik@hardiksingh.org?subject=Project%20Quote%20Request&body=Hi%20Hardik%2C%20I%27d%20like%20a%20quote%20for%20the%20following%3A%0A%0AWebsite%2Fniche%3A%20%0ACity%2FRegion%3A%20%0AFields%20needed%3A%20%0ARecord%20count%3A%20" class="cta-row">
-            <div class="cta-ico">📩</div><div class="cta-txt"><strong>Get a Custom Quote</strong><span>Tell me what you need - I'll reply in hours</span></div><span class="cta-arr">→</span>
-          </a>
-          <a href="mailto:hardik@hardiksingh.org?subject=Free%20Sample%20Request&body=Hi%20Hardik%2C%20I%27d%20like%20a%20free%20data%20sample.%0A%0ATarget%20site%2Fniche%3A%20%0ACity%2FRegion%3A%20%0AFields%20needed%3A%20" class="cta-row">
-            <div class="cta-ico">📄</div><div class="cta-txt"><strong>Request a Free Sample</strong><span>Get 10–25 records before you commit</span></div><span class="cta-arr">→</span>
-          </a>
-          <a href="https://fiverr.com/sweet_lemon_0_0" target="_blank" rel="noopener" class="cta-row" style="opacity:0.7;">
-            <div class="cta-ico">🟢</div><div class="cta-txt"><strong>Order via Fiverr</strong><span>Prefer platform escrow? Available there too</span></div><span class="cta-arr">→</span>
-          </a>
-        </div>
+        <p>Tell me what you need and I'll reply within a few hours with a quote and timeline.</p>
+        <!--
+          ┌────────────────────────────────────────────────────────────┐
+          │  FORMSPREE SETUP INSTRUCTIONS:                             │
+          │  1. Sign up free at https://formspree.io                   │
+          │  2. Create a new form and copy your form endpoint          │
+          │     (looks like: https://formspree.io/f/xyzabcde)          │
+          │  3. Replace YOUR_FORM_ID below with your endpoint ID       │
+          └────────────────────────────────────────────────────────────┘
+        -->
+        <form id="contact-form" class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name <span class="req">*</span></label>
+              <input type="text" id="name" name="name" placeholder="Your full name" required autocomplete="name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email <span class="req">*</span></label>
+              <input type="email" id="email" name="email" placeholder="you@company.com" required autocomplete="email">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="target">Target Niche or Website <span class="req">*</span></label>
+            <input type="text" id="target" name="target" placeholder="e.g. Dentists in NYC, Yelp restaurants, etc." required>
+          </div>
+          <div class="form-group">
+            <label for="records">Number of Records Needed</label>
+            <select id="records" name="records">
+              <option value="" disabled selected>Select an estimate</option>
+              <option value="under-500">Under 500</option>
+              <option value="500-1000">500 – 1,000</option>
+              <option value="1000-2500">1,000 – 2,500</option>
+              <option value="2500-5000">2,500 – 5,000</option>
+              <option value="5000-plus">5,000+</option>
+              <option value="not-sure">Not sure yet</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message <span class="req">*</span></label>
+            <textarea id="message" name="message" placeholder="Fields you need, deadline, sources, any specifics..." required></textarea>
+          </div>
+          <!-- Honeypot field (anti-spam, hidden from real users) -->
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+          <button type="submit" class="form-submit" id="form-submit-btn">
+            <span class="submit-text">📩 Send Message</span>
+            <span class="spinner"></span>
+          </button>
+          <div class="form-status" id="form-status"></div>
+          <p class="form-note">Prefer email? Reach me directly at <a href="mailto:hardik@hardiksingh.org">hardik@hardiksingh.org</a></p>
+        </form>
       </div>
     </div>
   </div>
@@ -1134,6 +1298,89 @@ window.addEventListener('scroll', () => {
   allSections.forEach(s => { if (window.scrollY >= s.offsetTop - 90) current = s.id; });
   allNavLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold)' : ''; });
 }, { passive: true });
+
+/* ──────────────────────────────────────────────────
+   CONTACT FORM — Formspree handler + prefill logic
+─────────────────────────────────────────────────── */
+(function() {
+  const form = document.getElementById('contact-form');
+  if (!form) return;
+
+  const submitBtn = document.getElementById('form-submit-btn');
+  const status = document.getElementById('form-status');
+  const recordsField = document.getElementById('records');
+  const messageField = document.getElementById('message');
+
+  /* Prefill form when arriving from pricing card / sample button */
+  document.querySelectorAll('a[href="#contact"]').forEach(link => {
+    link.addEventListener('click', () => {
+      const records = link.dataset.prefillRecords;
+      const tier = link.dataset.prefillTier;
+      const sample = link.dataset.prefillSample;
+
+      setTimeout(() => {
+        if (records && recordsField) {
+          recordsField.value = records;
+          // brief highlight pulse
+          recordsField.style.borderColor = 'var(--gold)';
+          setTimeout(() => { recordsField.style.borderColor = ''; }, 1200);
+        }
+        if (tier && messageField && !messageField.value) {
+          messageField.value = `I'd like to get a quote for the ${tier} plan.\n\nMy target / niche: \nFields needed: \nAny specifics: `;
+        }
+        if (sample && messageField && !messageField.value) {
+          messageField.value = `I'd like to request a free data sample (10–25 records).\n\nTarget site / niche: \nCity / region: \nFields needed: `;
+        }
+        // focus first empty field
+        if (sample || tier) {
+          const firstEmpty = form.querySelector('input[required]:placeholder-shown, textarea[required]:placeholder-shown');
+          if (firstEmpty) firstEmpty.focus({ preventScroll: true });
+        }
+      }, 600);
+    });
+  });
+
+  /* Submit handler — sends to Formspree via AJAX */
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    if (form.action.includes('YOUR_FORM_ID')) {
+      status.className = 'form-status error';
+      status.textContent = '⚠ Form not configured yet. Replace YOUR_FORM_ID in the form action with your Formspree endpoint.';
+      return;
+    }
+
+    submitBtn.classList.add('loading');
+    submitBtn.disabled = true;
+    status.className = 'form-status';
+    status.textContent = '';
+
+    try {
+      const formData = new FormData(form);
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        status.className = 'form-status success';
+        status.textContent = '✓ Message sent! I\'ll reply within a few hours.';
+        form.reset();
+      } else {
+        const data = await response.json().catch(() => ({}));
+        const errMsg = (data.errors && data.errors.map(e => e.message).join(', ')) || 'Something went wrong. Please try again or email me directly.';
+        status.className = 'form-status error';
+        status.textContent = '✗ ' + errMsg;
+      }
+    } catch (err) {
+      status.className = 'form-status error';
+      status.textContent = '✗ Network error. Please check your connection or email me directly.';
+    } finally {
+      submitBtn.classList.remove('loading');
+      submitBtn.disabled = false;
+    }
+  });
+})();
 </script>
 </body>
 </html>
