@@ -3,8 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hardik Singh - Python Web Scraping Specialist</title>
-  <meta name="description" content="Professional web scraping services. Clean, structured data delivered fast. 2500+ records, 24-hour turnaround." />
+  <title>Hardik Singh — Python Web Scraping Specialist | Clean Data, 24h Delivery</title>
+  <meta name="description" content="Professional Python web scraping services for lead generation, B2B enrichment, and competitor intelligence. 2,500+ records delivered. 24-hour turnaround. Excel + CSV. Free sample available." />
+  <meta name="author" content="Hardik Singh" />
+  <meta name="keywords" content="web scraping, python web scraper, lead generation, b2b data, business listings, data extraction, web scraping services, hire web scraper, scrape google maps, scrape yelp, hvac leads, law firm leads, real estate leads, healthcare leads" />
+  <meta name="theme-color" content="#0E0E10" />
+  <link rel="canonical" href="https://hardiksingh.org/" />
+
+  <!-- Open Graph / Facebook / WhatsApp / LinkedIn -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hardiksingh.org/" />
+  <meta property="og:site_name" content="Hardik Singh" />
+  <meta property="og:title" content="Hardik Singh — Python Web Scraping Specialist" />
+  <meta property="og:description" content="Clean, structured business data — delivered as Excel or CSV in 24 hours. Lead lists, B2B enrichment, competitor intel. 2,500+ records delivered." />
+  <meta property="og:image" content="https://hardiksingh.org/og-image.png" />
+  <meta property="og:image:alt" content="Hardik Singh — Python Web Scraping Specialist. Clean data, 24h delivery." />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Hardik Singh — Python Web Scraping Specialist" />
+  <meta name="twitter:description" content="Clean, structured business data — delivered as Excel or CSV in 24 hours. Lead lists, B2B enrichment, competitor intel." />
+  <meta name="twitter:image" content="https://hardiksingh.org/og-image.png" />
+  <meta name="twitter:image:alt" content="Hardik Singh — Python Web Scraping Specialist" />
+
+  <!-- Schema.org structured data for Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Hardik Singh — Web Scraping Services",
+    "description": "Professional Python web scraping services for lead generation, B2B data enrichment, and competitor intelligence.",
+    "url": "https://hardiksingh.org/",
+    "image": "https://hardiksingh.org/og-image.png",
+    "telephone": "+91-78968-41169",
+    "email": "hardik@hardiksingh.org",
+    "priceRange": "$50 - $220+",
+    "areaServed": "Worldwide",
+    "founder": {
+      "@type": "Person",
+      "name": "Hardik Singh",
+      "jobTitle": "Python Web Scraping Specialist",
+      "sameAs": [
+        "https://linkedin.com/in/hardik-singh-519265357",
+        "https://fiverr.com/sweet_lemon_0_0"
+      ]
+    },
+    "serviceType": [
+      "Web Scraping",
+      "Lead Generation",
+      "B2B Data Enrichment",
+      "Competitor Intelligence",
+      "Data Extraction"
+    ]
+  }
+  </script>
 
   <!-- Cabinet Grotesk via Fontshare -->
   <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&display=swap" rel="stylesheet">
@@ -721,6 +776,516 @@
     }
 
     /* ══════════════════════════════
+       NICHES SECTION
+    ══════════════════════════════ */
+    #niches { background: var(--bg); position: relative; overflow: hidden; }
+    #niches::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 50% 55% at 12% 50%, rgba(245,245,240,0.025) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .niches-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      position: relative;
+    }
+    .niche-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 26px;
+      display: flex; align-items: center; gap: 18px;
+      transition: border-color 0.3s ease, transform 0.3s ease,
+                  box-shadow 0.3s ease, background 0.3s ease;
+      position: relative; overflow: hidden;
+    }
+    .niche-card::after {
+      content: ''; position: absolute;
+      top: 0; left: -100%; width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(245,245,240,0.04), transparent);
+      transition: left 0.7s ease;
+    }
+    .niche-card:hover {
+      border-color: rgba(245,245,240,0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 14px 38px rgba(0,0,0,0.4),
+                  0 0 0 1px rgba(245,245,240,0.06) inset;
+    }
+    .niche-card:hover::after { left: 100%; }
+    .niche-icon-wrap {
+      flex-shrink: 0;
+      width: 54px; height: 54px;
+      border-radius: var(--radius-sm);
+      background: rgba(245,245,240,0.04);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+    .niche-card:hover .niche-icon-wrap {
+      background: rgba(245,245,240,0.07);
+      border-color: rgba(245,245,240,0.25);
+    }
+    .niche-icon-wrap svg {
+      width: 26px; height: 26px;
+      stroke: var(--gold);
+      stroke-width: 1.6;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    .niche-card:hover .niche-icon-wrap svg { transform: scale(1.1); }
+    .niche-body { min-width: 0; }
+    .niche-title {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-size: 1rem; font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+      letter-spacing: -0.005em;
+    }
+    .niche-sub {
+      font-size: 0.78rem; color: var(--muted);
+      font-family: 'DM Mono', monospace;
+      letter-spacing: 0.01em;
+    }
+    .niches-footer {
+      text-align: center;
+      margin-top: 36px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-family: 'DM Mono', monospace;
+    }
+    .niches-footer strong { color: var(--text2); }
+    .niches-footer a {
+      color: var(--gold);
+      border-bottom: 1px solid rgba(245,245,240,0.3);
+      transition: opacity 0.2s ease;
+    }
+    .niches-footer a:hover { opacity: 0.8; }
+    @media (max-width: 920px) {
+      .niches-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .niches-grid { grid-template-columns: 1fr; }
+      .niche-card { padding: 22px 20px; }
+    }
+
+    /* ══════════════════════════════
+       TOOLS / TECH STACK STRIP
+    ══════════════════════════════ */
+    #tools { background: var(--surface); padding: 70px 24px; }
+    .tools-header {
+      text-align: center;
+      margin-bottom: 38px;
+    }
+    .tools-tag {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+      padding: 5px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      background: rgba(245,245,240,0.025);
+    }
+    .tools-title {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+    .tools-sub {
+      color: var(--muted);
+      font-size: 0.92rem;
+      max-width: 540px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+    .tools-strip {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    .tool-chip {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 14px 18px;
+      text-align: center;
+      transition: border-color 0.3s ease, transform 0.3s ease,
+                  background 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+      position: relative;
+    }
+    .tool-chip:hover {
+      border-color: rgba(245,245,240,0.35);
+      transform: translateY(-3px);
+      background: rgba(245,245,240,0.015);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.35);
+    }
+    .tool-logo {
+      width: 38px; height: 38px;
+      margin: 0 auto 10px;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    .tool-chip:hover .tool-logo { transform: scale(1.12); }
+    .tool-logo svg { width: 100%; height: 100%; }
+    .tool-name {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--text2);
+      letter-spacing: 0.02em;
+    }
+    .tool-meta {
+      font-size: 0.66rem;
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+      margin-top: 2px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    @media (max-width: 920px) {
+      .tools-strip { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .tools-strip { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .tool-chip { padding: 18px 10px 14px; }
+    }
+
+    /* ══════════════════════════════
+       FREE SAMPLE OFFER SECTION
+    ══════════════════════════════ */
+    #sample {
+      background: var(--bg);
+      position: relative;
+      overflow: hidden;
+    }
+    #sample::before {
+      content: ''; position: absolute;
+      top: -20%; right: -10%;
+      width: 70%; height: 140%;
+      background: radial-gradient(ellipse 50% 50% at center, rgba(245,245,240,0.045) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    #sample::after {
+      content: ''; position: absolute;
+      bottom: -15%; left: -10%;
+      width: 60%; height: 100%;
+      background: radial-gradient(ellipse 50% 50% at center, rgba(245,245,240,0.025) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .sample-wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .sample-card {
+      background: linear-gradient(135deg, var(--card) 0%, var(--surface) 100%);
+      border: 1px solid rgba(245,245,240,0.18);
+      border-radius: var(--radius-lg);
+      padding: 56px 56px 48px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5),
+                  0 0 0 1px rgba(245,245,240,0.04) inset,
+                  0 0 80px rgba(245,245,240,0.04);
+      position: relative;
+      overflow: hidden;
+    }
+    .sample-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent 0%, var(--gold) 50%, transparent 100%);
+      opacity: 0.6;
+    }
+    .sample-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      gap: 56px;
+      align-items: start;
+    }
+    .sample-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(245,245,240,0.06);
+      border: 1px solid rgba(245,245,240,0.18);
+      color: var(--gold);
+      padding: 6px 14px 6px 10px;
+      border-radius: var(--radius-pill);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .sample-pill-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 8px var(--green);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: 0.5; transform: scale(1.4); }
+    }
+    .sample-card h2 {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .sample-card h2 .grad-text {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .sample-intro {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 26px;
+    }
+    .sample-includes {
+      list-style: none;
+      padding: 0; margin: 0 0 28px;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .sample-includes li {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 0.92rem;
+      color: var(--text2);
+      line-height: 1.55;
+    }
+    .sample-tick {
+      flex-shrink: 0;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: rgba(16,185,129,0.12);
+      border: 1px solid rgba(16,185,129,0.35);
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 1px;
+    }
+    .sample-tick svg {
+      width: 11px; height: 11px;
+      stroke: var(--green); stroke-width: 2.5;
+      fill: none; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .sample-includes li strong { color: var(--text); font-weight: 600; }
+    .sample-cta-row {
+      display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
+      margin-top: 8px;
+    }
+    .sample-fine {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+    /* Right column: examples preview */
+    .sample-examples {
+      background: rgba(14,14,16,0.55);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 22px 20px;
+      backdrop-filter: blur(6px);
+    }
+    .sample-ex-head {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .sample-ex-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .sample-ex-badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.66rem;
+      color: var(--gold);
+      background: rgba(245,245,240,0.06);
+      padding: 3px 9px;
+      border-radius: var(--radius-pill);
+      letter-spacing: 0.06em;
+    }
+    .sample-ex-list {
+      list-style: none; padding: 0; margin: 0;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .sample-ex-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 11px 14px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      transition: border-color 0.25s ease, transform 0.25s ease, background 0.25s ease;
+      cursor: pointer;
+    }
+    .sample-ex-item:hover {
+      border-color: rgba(245,245,240,0.3);
+      transform: translateX(4px);
+      background: rgba(245,245,240,0.02);
+    }
+    .sample-ex-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--gold-soft);
+      flex-shrink: 0;
+      box-shadow: 0 0 6px rgba(245,245,240,0.2);
+    }
+    .sample-ex-text {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.82rem;
+      color: var(--text2);
+    }
+    .sample-ex-fields {
+      margin-top: 6px;
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+    .sample-ex-footer {
+      margin-top: 14px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--muted2);
+      text-align: center;
+      letter-spacing: 0.04em;
+    }
+    @media (max-width: 920px) {
+      .sample-card { padding: 40px 32px 36px; }
+      .sample-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+    @media (max-width: 560px) {
+      .sample-card { padding: 32px 22px 28px; border-radius: var(--radius); }
+      .sample-includes li { font-size: 0.88rem; }
+      .sample-examples { padding: 18px 16px 16px; }
+    }
+
+    /* ══════════════════════════════
+       LINKEDIN SOCIAL-PROOF CARD
+    ══════════════════════════════ */
+    .linkedin-card {
+      background: linear-gradient(135deg, #0A0A0C 0%, var(--card) 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0;
+      overflow: hidden;
+      transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      margin-top: 14px;
+      display: block;
+      position: relative;
+    }
+    .linkedin-card:hover {
+      border-color: rgba(10,102,194,0.55);
+      transform: translateY(-3px);
+      box-shadow: 0 18px 44px rgba(0,0,0,0.45),
+                  0 0 0 1px rgba(10,102,194,0.18) inset;
+    }
+    .linkedin-banner {
+      height: 64px;
+      background: linear-gradient(135deg, #0A66C2 0%, #0077B5 50%, #054670 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .linkedin-banner::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 80% 30%, rgba(255,255,255,0.18) 0%, transparent 50%),
+        radial-gradient(circle at 20% 70%, rgba(255,255,255,0.08) 0%, transparent 50%);
+    }
+    .linkedin-badge {
+      position: absolute;
+      top: 12px; right: 14px;
+      display: flex; align-items: center; gap: 6px;
+      background: rgba(0,0,0,0.45);
+      backdrop-filter: blur(6px);
+      padding: 4px 10px 4px 8px;
+      border-radius: var(--radius-pill);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.66rem;
+      color: #fff;
+      letter-spacing: 0.05em;
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+    .linkedin-badge svg { width: 11px; height: 11px; fill: #fff; }
+    .linkedin-body {
+      padding: 0 22px 20px;
+      position: relative;
+    }
+    .linkedin-avatar {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-soft) 100%);
+      color: #0A0A0A;
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 900;
+      font-size: 1.3rem;
+      letter-spacing: -0.02em;
+      display: flex; align-items: center; justify-content: center;
+      border: 3px solid var(--card);
+      margin-top: -32px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+      position: relative;
+    }
+    .linkedin-name {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-size: 1.05rem; font-weight: 700;
+      color: var(--text);
+      margin-top: 12px;
+      letter-spacing: -0.01em;
+    }
+    .linkedin-title {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 2px;
+      line-height: 1.5;
+    }
+    .linkedin-meta {
+      display: flex; gap: 14px;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+    .linkedin-meta strong {
+      color: var(--text2);
+      font-weight: 600;
+    }
+    .linkedin-cta {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      margin-top: 14px;
+      padding: 10px 16px;
+      background: #0A66C2;
+      color: #fff;
+      border-radius: var(--radius-pill);
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      transition: background 0.25s ease, transform 0.25s ease;
+    }
+    .linkedin-cta:hover { background: #0077B5; transform: translateY(-1px); }
+    .linkedin-cta svg { width: 13px; height: 13px; fill: #fff; }
+
+    /* ══════════════════════════════
        CONTACT
     ══════════════════════════════ */
     #contact { background: var(--surface); position: relative; overflow: hidden; }
@@ -1198,9 +1763,10 @@
   <div class="nav-inner">
     <div class="nav-logo">HS</div>
     <div class="nav-links">
+      <a href="#niches">Niches</a>
       <a href="#services">Services</a>
       <a href="#pricing">Pricing</a>
-      <a href="#case-study">Case Study</a>
+      <a href="#sample">Free Sample</a>
       <a href="#process">Process</a>
       <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
@@ -1210,8 +1776,10 @@
   </div>
 </nav>
 <div class="mobile-menu" id="mobile-menu">
+  <a href="#niches"       onclick="closeMobile()">Niches</a>
   <a href="#services"     onclick="closeMobile()">Services</a>
   <a href="#pricing"      onclick="closeMobile()">Pricing</a>
+  <a href="#sample"       onclick="closeMobile()">Free Sample</a>
   <a href="#case-study"   onclick="closeMobile()">Case Study</a>
   <a href="#process"      onclick="closeMobile()">Process</a>
   <a href="#faq"          onclick="closeMobile()">FAQ</a>
@@ -1282,6 +1850,116 @@
 
 <div class="gold-divider"></div>
 
+<!-- ════ NICHES ════ -->
+<section id="niches">
+  <div class="container">
+    <div class="section-header center reveal">
+      <div class="section-tag">Industries</div>
+      <div class="section-title">Niches I Specialise In</div>
+      <div class="section-sub">Repeatable wins in these verticals — I know the data sources, the fields that matter, and the gotchas.</div>
+    </div>
+    <div class="niches-grid">
+
+      <div class="niche-card reveal">
+        <div class="niche-icon-wrap">
+          <!-- HVAC -->
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+          </svg>
+        </div>
+        <div class="niche-body">
+          <div class="niche-title">HVAC Contractors</div>
+          <div class="niche-sub">Local listings · service areas · owner contacts</div>
+        </div>
+      </div>
+
+      <div class="niche-card reveal reveal-delay-1">
+        <div class="niche-icon-wrap">
+          <!-- Law -->
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3v18"/>
+            <path d="M5 7h14"/>
+            <path d="M5 7l-2 6a4 4 0 0 0 8 0l-2-6"/>
+            <path d="M19 7l-2 6a4 4 0 0 0 8 0l-2-6" transform="translate(-6 0)"/>
+            <path d="M7 21h10"/>
+          </svg>
+        </div>
+        <div class="niche-body">
+          <div class="niche-title">Law Firms</div>
+          <div class="niche-sub">Avvo · Justia · bar associations · firm websites</div>
+        </div>
+      </div>
+
+      <div class="niche-card reveal reveal-delay-2">
+        <div class="niche-icon-wrap">
+          <!-- Roofing -->
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 12L12 4l9 8"/>
+            <path d="M5 11v9h14v-9"/>
+            <path d="M10 20v-5h4v5"/>
+          </svg>
+        </div>
+        <div class="niche-body">
+          <div class="niche-title">Roofing Companies</div>
+          <div class="niche-sub">By state · BBB · directory + Google Maps blends</div>
+        </div>
+      </div>
+
+      <div class="niche-card reveal">
+        <div class="niche-icon-wrap">
+          <!-- B2B -->
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="7" width="8" height="13" rx="1"/>
+            <rect x="13" y="4" width="8" height="16" rx="1"/>
+            <path d="M6 11h2M6 14h2M6 17h2M16 8h2M16 11h2M16 14h2M16 17h2"/>
+          </svg>
+        </div>
+        <div class="niche-body">
+          <div class="niche-title">B2B Companies</div>
+          <div class="niche-sub">LinkedIn · Apollo · decision-maker enrichment</div>
+        </div>
+      </div>
+
+      <div class="niche-card reveal reveal-delay-1">
+        <div class="niche-icon-wrap">
+          <!-- Real estate -->
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 11l9-7 9 7"/>
+            <path d="M5 10v10h14V10"/>
+            <path d="M9 20v-6h6v6"/>
+            <circle cx="17" cy="14" r="0.8" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="niche-body">
+          <div class="niche-title">Real Estate</div>
+          <div class="niche-sub">Realtor · Zillow · agent + brokerage data</div>
+        </div>
+      </div>
+
+      <div class="niche-card reveal reveal-delay-2">
+        <div class="niche-icon-wrap">
+          <!-- Healthcare -->
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3v18M3 12h18" stroke-width="2.2"/>
+            <rect x="3" y="3" width="18" height="18" rx="3"/>
+          </svg>
+        </div>
+        <div class="niche-body">
+          <div class="niche-title">Healthcare</div>
+          <div class="niche-sub">Therapists · dentists · clinics · provider directories</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="niches-footer reveal">
+      <strong>Working in a different niche?</strong> No problem — most projects map cleanly to the same playbook. <a href="#contact">Tell me about yours →</a>
+    </div>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
 <!-- ════ SERVICES ════ -->
 <section id="services">
   <div class="container">
@@ -1295,6 +1973,116 @@
       <div class="service-card tilt reveal reveal-delay-1"><div class="svc-num">02</div><div class="svc-icon">🏢</div><h3>B2B Lead Enrichment</h3><p>Enrich existing company lists with emails, LinkedIn URLs, phone numbers, headcounts, and decision-maker contacts.</p><div class="svc-tags"><span class="tag">LinkedIn</span><span class="tag">Apollo</span><span class="tag">Email Finder</span></div></div>
       <div class="service-card tilt reveal reveal-delay-2"><div class="svc-num">03</div><div class="svc-icon">🔍</div><h3>Competitor Intelligence</h3><p>Monitor competitor pricing, product listings, reviews, and inventory. Structured snapshots on demand or on a schedule.</p><div class="svc-tags"><span class="tag">E-commerce</span><span class="tag">SaaS</span><span class="tag">Price Tracking</span></div></div>
       <div class="service-card tilt reveal reveal-delay-3"><div class="svc-num">04</div><div class="svc-icon">⚙️</div><h3>Custom Automation</h3><p>Recurring scrapers, scheduled exports, or full pipelines. Need data refreshed weekly? I'll build it and hand it over.</p><div class="svc-tags"><span class="tag">Python</span><span class="tag">Selenium</span><span class="tag">Playwright</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ TOOLS / TECH STACK ════ -->
+<section id="tools">
+  <div class="container">
+    <div class="tools-header reveal">
+      <div class="tools-tag">Tech Stack</div>
+      <div class="tools-title">Built with the right tools for the job</div>
+      <div class="tools-sub">Production-grade libraries used by engineers at top tech companies — same toolkit, applied to your data problem.</div>
+    </div>
+    <div class="tools-strip">
+
+      <div class="tool-chip reveal" title="Python — primary language for all scrapers">
+        <div class="tool-logo">
+          <!-- Python -->
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <defs>
+              <linearGradient id="py-blue" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#5A9FD4"/>
+                <stop offset="1" stop-color="#306998"/>
+              </linearGradient>
+              <linearGradient id="py-yellow" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#FFE873"/>
+                <stop offset="1" stop-color="#FFD43B"/>
+              </linearGradient>
+            </defs>
+            <path fill="url(#py-blue)" d="M31.9 4c-7 0-6.6 3-6.6 3v3.1h6.7v.95H22.5S18 10.6 18 17.7s4 6.8 4 6.8h3v-3.2s-.2-4 3.8-4h6.7s3.8.1 3.8-3.7v-6.3S40 4 31.9 4zM27.7 7c.7 0 1.3.6 1.3 1.3s-.6 1.3-1.3 1.3-1.3-.6-1.3-1.3.6-1.3 1.3-1.3z"/>
+            <path fill="url(#py-yellow)" d="M32.1 60c7 0 6.6-3 6.6-3v-3.1H32V53h9.5s4.5.5 4.5-6.7-4-6.8-4-6.8h-3v3.2s.2 4-3.8 4h-6.7s-3.8-.1-3.8 3.7v6.3S24 60 32.1 60zm4.2-3c-.7 0-1.3-.6-1.3-1.3s.6-1.3 1.3-1.3 1.3.6 1.3 1.3-.6 1.3-1.3 1.3z"/>
+          </svg>
+        </div>
+        <div class="tool-name">Python</div>
+        <div class="tool-meta">Language</div>
+      </div>
+
+      <div class="tool-chip reveal reveal-delay-1" title="Playwright — modern browser automation for SPAs">
+        <div class="tool-logo">
+          <!-- Playwright -->
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <circle cx="32" cy="32" r="28" fill="#2EAD33"/>
+            <ellipse cx="24" cy="28" rx="6" ry="8" fill="#fff"/>
+            <ellipse cx="42" cy="28" rx="6" ry="8" fill="#fff"/>
+            <circle cx="24" cy="30" r="3" fill="#1a1a1a"/>
+            <circle cx="42" cy="30" r="3" fill="#1a1a1a"/>
+            <path d="M22 44 Q32 52 42 44" stroke="#1a1a1a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="tool-name">Playwright</div>
+        <div class="tool-meta">Browser</div>
+      </div>
+
+      <div class="tool-chip reveal reveal-delay-2" title="Selenium — battle-tested browser automation">
+        <div class="tool-logo">
+          <!-- Selenium -->
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <path fill="#43B02A" d="M14 8h36l-8 14h-12l8 12-16 22 4-24h-16z"/>
+          </svg>
+        </div>
+        <div class="tool-name">Selenium</div>
+        <div class="tool-meta">Browser</div>
+      </div>
+
+      <div class="tool-chip reveal reveal-delay-3" title="BeautifulSoup — fast HTML parsing">
+        <div class="tool-logo">
+          <!-- BeautifulSoup -->
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <ellipse cx="32" cy="40" rx="22" ry="14" fill="#8B4513"/>
+            <ellipse cx="32" cy="38" rx="20" ry="12" fill="#A0522D"/>
+            <ellipse cx="32" cy="36" rx="16" ry="6" fill="#D2691E" opacity="0.8"/>
+            <path d="M14 38 Q12 32 16 28 M50 38 Q52 32 48 28" stroke="#8B4513" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <circle cx="24" cy="34" r="1.5" fill="#FFD700"/>
+            <circle cx="40" cy="35" r="1.5" fill="#FFD700"/>
+            <circle cx="32" cy="33" r="1.5" fill="#FFD700"/>
+          </svg>
+        </div>
+        <div class="tool-name">BeautifulSoup</div>
+        <div class="tool-meta">Parser</div>
+      </div>
+
+      <div class="tool-chip reveal reveal-delay-3" title="Apollo — B2B contact enrichment">
+        <div class="tool-logo">
+          <!-- Apollo -->
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <circle cx="32" cy="32" r="28" fill="#0A3FCC"/>
+            <path d="M32 14 L46 46 L40 46 L36 38 L28 38 L24 46 L18 46 Z" fill="#fff"/>
+            <path d="M30 32 L32 26 L34 32 Z" fill="#0A3FCC"/>
+          </svg>
+        </div>
+        <div class="tool-name">Apollo</div>
+        <div class="tool-meta">Enrichment</div>
+      </div>
+
+      <div class="tool-chip reveal reveal-delay-3" title="Excel & CSV — delivery format">
+        <div class="tool-logo">
+          <!-- Excel -->
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <rect x="6" y="10" width="44" height="44" rx="3" fill="#107C41"/>
+            <rect x="6" y="10" width="44" height="10" fill="#0B5C30"/>
+            <path d="M18 26 L28 40 L18 54 M28 26 L18 40 L28 54" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="34" y="24" width="22" height="4" fill="#fff" opacity="0.85"/>
+            <rect x="34" y="32" width="22" height="4" fill="#fff" opacity="0.85"/>
+            <rect x="34" y="40" width="22" height="4" fill="#fff" opacity="0.85"/>
+            <rect x="34" y="48" width="22" height="4" fill="#fff" opacity="0.85"/>
+          </svg>
+        </div>
+        <div class="tool-name">Excel + CSV</div>
+        <div class="tool-meta">Delivery</div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1350,6 +2138,105 @@
             <tr><td>Rush delivery (&lt;12 hours)</td><td>For time-sensitive projects</td><td>+$25</td></tr>
           </tbody>
         </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- ════ FREE SAMPLE OFFER ════ -->
+<section id="sample">
+  <div class="sample-wrap">
+    <div class="sample-card reveal">
+      <div class="sample-grid">
+
+        <div class="sample-left">
+          <div class="sample-pill">
+            <span class="sample-pill-dot"></span>
+            Free · No commitment
+          </div>
+          <h2>Try before you buy.<br><span class="grad-text">Get a free 25-record sample.</span></h2>
+          <p class="sample-intro">
+            Not sure if my data is what you need? I'll pull a real sample from your target niche — same fields, same format, same quality you'd get on a paid project. <strong style="color:var(--text2);">Zero cost, zero obligation.</strong>
+          </p>
+
+          <ul class="sample-includes">
+            <li>
+              <span class="sample-tick" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M2.5 7.5 L6 11 L11.5 3.5"/></svg></span>
+              <span><strong>25 real records</strong> from your actual target niche — not generic placeholder data</span>
+            </li>
+            <li>
+              <span class="sample-tick" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M2.5 7.5 L6 11 L11.5 3.5"/></svg></span>
+              <span><strong>All standard fields</strong> — business name, phone, email (where public), address, website, rating</span>
+            </li>
+            <li>
+              <span class="sample-tick" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M2.5 7.5 L6 11 L11.5 3.5"/></svg></span>
+              <span><strong>Excel + CSV</strong> formats — exactly what you'd receive on a paid order</span>
+            </li>
+            <li>
+              <span class="sample-tick" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M2.5 7.5 L6 11 L11.5 3.5"/></svg></span>
+              <span><strong>Delivered in 24 hours</strong> — usually faster. I treat samples as seriously as paid work.</span>
+            </li>
+            <li>
+              <span class="sample-tick" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M2.5 7.5 L6 11 L11.5 3.5"/></svg></span>
+              <span><strong>Quote included</strong> — once you see the sample, you'll get a price for the full list.</span>
+            </li>
+          </ul>
+
+          <div class="sample-cta-row">
+            <a href="#contact" class="btn btn-primary" data-prefill-sample="1">📄 Request Free Sample</a>
+            <span class="sample-fine">// One sample per project · Reply within a few hours</span>
+          </div>
+        </div>
+
+        <div class="sample-right">
+          <div class="sample-examples">
+            <div class="sample-ex-head">
+              <div class="sample-ex-title">Sample Niches</div>
+              <div class="sample-ex-badge">EXAMPLES</div>
+            </div>
+            <ul class="sample-ex-list">
+              <li class="sample-ex-item">
+                <span class="sample-ex-dot"></span>
+                <div>
+                  <div class="sample-ex-text">Dentists in Chicago, IL</div>
+                  <div class="sample-ex-fields">name · phone · email · address · website · rating</div>
+                </div>
+              </li>
+              <li class="sample-ex-item">
+                <span class="sample-ex-dot"></span>
+                <div>
+                  <div class="sample-ex-text">HVAC contractors in Texas</div>
+                  <div class="sample-ex-fields">company · owner · phone · service area · BBB rating</div>
+                </div>
+              </li>
+              <li class="sample-ex-item">
+                <span class="sample-ex-dot"></span>
+                <div>
+                  <div class="sample-ex-text">SaaS founders &mdash; LinkedIn enrichment</div>
+                  <div class="sample-ex-fields">name · title · company · email · LinkedIn URL</div>
+                </div>
+              </li>
+              <li class="sample-ex-item">
+                <span class="sample-ex-dot"></span>
+                <div>
+                  <div class="sample-ex-text">Yelp restaurants in NYC</div>
+                  <div class="sample-ex-fields">name · cuisine · phone · address · rating · review count</div>
+                </div>
+              </li>
+              <li class="sample-ex-item">
+                <span class="sample-ex-dot"></span>
+                <div>
+                  <div class="sample-ex-text">Realtors in Florida</div>
+                  <div class="sample-ex-fields">agent · brokerage · phone · email · listings count</div>
+                </div>
+              </li>
+            </ul>
+            <div class="sample-ex-footer">— or describe your own niche on request —</div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -1514,15 +2401,35 @@
             <div class="c-icon ci-phone">📞</div>
             <div><div class="c-lbl">Phone / WhatsApp</div><div class="c-val">+91 78968 41169</div></div>
           </a>
-          <a href="https://linkedin.com/in/hardik-singh-519265357" target="_blank" rel="noopener" class="c-link reveal reveal-delay-2">
-            <div class="c-icon ci-linkedin">💼</div>
-            <div><div class="c-lbl">LinkedIn</div><div class="c-val">hardik-singh-519265357</div></div>
-          </a>
-          <a href="https://fiverr.com/sweet_lemon_0_0" target="_blank" rel="noopener" class="c-link secondary reveal reveal-delay-3">
+          <a href="https://fiverr.com/sweet_lemon_0_0" target="_blank" rel="noopener" class="c-link secondary reveal reveal-delay-2">
             <div class="c-icon ci-fiverr">🟢</div>
             <div><div class="c-lbl">Fiverr <span class="c-badge" style="background:rgba(16,185,129,0.15);color:var(--green);">Also available</span></div><div class="c-val">fiverr.com/sweet_lemon_0_0</div></div>
           </a>
         </div>
+
+        <!-- LinkedIn social-proof card -->
+        <a href="https://linkedin.com/in/hardik-singh-519265357" target="_blank" rel="noopener" class="linkedin-card reveal reveal-delay-3">
+          <div class="linkedin-banner">
+            <div class="linkedin-badge">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+              LinkedIn
+            </div>
+          </div>
+          <div class="linkedin-body">
+            <div class="linkedin-avatar">HS</div>
+            <div class="linkedin-name">Hardik Singh</div>
+            <div class="linkedin-title">Python Web Scraping Specialist · Helping businesses turn the web into structured data</div>
+            <div class="linkedin-meta">
+              <span><strong>Open</strong> to projects</span>
+              <span><strong>India</strong> · Remote worldwide</span>
+            </div>
+            <div class="linkedin-cta">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+              Connect on LinkedIn
+            </div>
+          </div>
+        </a>
+      </div>
       </div>
       <div class="contact-panel reveal">
         <h3>Start a Project</h3>
