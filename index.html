@@ -1233,26 +1233,50 @@
       position: relative;
     }
     .linkedin-avatar {
-      width: 64px; height: 64px;
+      width: 80px; height: 80px;
       border-radius: 50%;
+      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      border: 3px solid var(--card);
+      margin-top: -40px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+      position: relative;
       background: linear-gradient(135deg, var(--gold) 0%, var(--gold-soft) 100%);
+    }
+    .linkedin-avatar img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    /* Fallback: when image fails to load, show initials */
+    .linkedin-avatar-initials {
+      display: none;
       color: #0A0A0A;
       font-family: 'Cabinet Grotesk', sans-serif;
       font-weight: 900;
-      font-size: 1.3rem;
+      font-size: 1.6rem;
       letter-spacing: -0.02em;
-      display: flex; align-items: center; justify-content: center;
-      border: 3px solid var(--card);
-      margin-top: -32px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-      position: relative;
     }
+    .linkedin-avatar-fallback .linkedin-avatar-initials { display: block; }
     .linkedin-name {
       font-family: 'Cabinet Grotesk', sans-serif;
-      font-size: 1.05rem; font-weight: 700;
+      font-size: 1.08rem; font-weight: 700;
       color: var(--text);
       margin-top: 12px;
       letter-spacing: -0.01em;
+      display: flex; align-items: center; gap: 8px;
+      flex-wrap: wrap;
+    }
+    .linkedin-pronouns {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.66rem;
+      font-weight: 400;
+      color: var(--muted);
+      background: rgba(245,245,240,0.05);
+      border: 1px solid var(--border);
+      padding: 2px 7px;
+      border-radius: var(--radius-pill);
+      letter-spacing: 0.02em;
     }
     .linkedin-title {
       font-size: 0.85rem;
@@ -1314,7 +1338,15 @@
     .c-val { font-size: 0.88rem; font-weight: 600; color: var(--text2); font-family: 'DM Mono', monospace; }
     .c-badge { font-size: 0.6rem; background: rgba(245,245,240,0.1); color: var(--gold); padding: 2px 8px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-left: 6px; vertical-align: middle; font-family: 'DM Mono', monospace; border-radius: var(--radius-pill); }
 
-    .contact-panel { background: var(--card); border: 1px solid var(--border); padding: 42px; box-shadow: 0 12px 50px rgba(0,0,0,0.35); position: relative; border-radius: var(--radius-lg); overflow: hidden; }
+    .contact-panel {
+      background: var(--card); border: 1px solid var(--border);
+      padding: 42px;
+      box-shadow: 0 12px 50px rgba(0,0,0,0.35);
+      position: sticky; top: 88px;
+      align-self: start;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
     .contact-panel::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
       background: linear-gradient(90deg, transparent, var(--gold), transparent);
@@ -1716,7 +1748,7 @@
       .process-steps { grid-template-columns: 1fr; }
       .pricing-grid { grid-template-columns: 1fr; }
       .case-box { padding: 30px 22px; }
-      .contact-panel { padding: 30px 22px; }
+      .contact-panel { padding: 30px 22px; position: static; }
 
       /* Form: stack 2-col layout on mobile */
       .form-row { grid-template-columns: 1fr; gap: 18px; }
@@ -2419,12 +2451,18 @@
             </div>
           </div>
           <div class="linkedin-body">
-            <div class="linkedin-avatar">HS</div>
-            <div class="linkedin-name">Hardik Singh</div>
-            <div class="linkedin-title">Python Web Scraping Specialist · Helping businesses turn the web into structured data</div>
+            <div class="linkedin-avatar">
+              <img src="linkedin-avatar.jpg" alt="Hardik Singh" onerror="this.style.display='none';this.parentElement.classList.add('linkedin-avatar-fallback');" />
+              <span class="linkedin-avatar-initials">HS</span>
+            </div>
+            <div class="linkedin-name">
+              Hardik Singh
+              <span class="linkedin-pronouns">He/Him</span>
+            </div>
+            <div class="linkedin-title">Python Web Scraping Specialist · Custom Scrapers for Digital Agencies</div>
             <div class="linkedin-meta">
-              <span><strong>Open</strong> to projects</span>
-              <span><strong>India</strong> · Remote worldwide</span>
+              <span><strong>Delhi</strong>, India</span>
+              <span><strong>Self Employed</strong> · Bennett University</span>
             </div>
             <div class="linkedin-cta">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
