@@ -1185,21 +1185,23 @@
     /* ══════════════════════════════
        LINKEDIN SOCIAL-PROOF CARD
     ══════════════════════════════ */
-    /* Horizontal full-width LinkedIn social-proof banner that sits BELOW the
-       contact-grid. Layout: [accent-strip] [avatar] [name/title/meta] [CTA] */
+    /* Vertical LinkedIn social-proof card placed inside the left contact column
+       to fill the dead space below the contact-links list. Layout:
+         [LinkedIn-blue banner with badge]
+         [avatar overlapping the banner]
+         [name + pronouns]
+         [title]
+         [meta line]
+         [Connect-on-LinkedIn CTA, full width] */
     .linkedin-card {
-      background: linear-gradient(135deg, #0A0A0C 0%, var(--card) 100%);
+      background: linear-gradient(160deg, #0A0A0C 0%, var(--card) 100%);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       overflow: hidden;
-      transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-      margin-top: 28px;
-      display: grid;
-      grid-template-columns: 8px auto 1fr auto;
-      align-items: center;
-      gap: 22px;
-      padding: 22px 28px 22px 0;
+      margin-top: 16px;
+      display: block;
       position: relative;
+      transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     }
     .linkedin-card:hover {
       border-color: rgba(10,102,194,0.55);
@@ -1207,44 +1209,51 @@
       box-shadow: 0 18px 44px rgba(0,0,0,0.45),
                   0 0 0 1px rgba(10,102,194,0.18) inset;
     }
-    /* Vertical LinkedIn-blue accent stripe on the left edge */
-    .linkedin-accent {
-      width: 100%; height: 100%;
-      background: linear-gradient(180deg, #0A66C2 0%, #0077B5 50%, #054670 100%);
+    /* Top LinkedIn-blue banner strip */
+    .linkedin-banner {
+      height: 56px;
+      background: linear-gradient(135deg, #0A66C2 0%, #0077B5 50%, #054670 100%);
       position: relative;
       overflow: hidden;
     }
-    .linkedin-accent::before {
+    .linkedin-banner::before {
       content: '';
       position: absolute; inset: 0;
       background:
-        radial-gradient(circle at 50% 20%, rgba(255,255,255,0.25) 0%, transparent 60%),
-        radial-gradient(circle at 50% 80%, rgba(255,255,255,0.08) 0%, transparent 50%);
+        radial-gradient(circle at 80% 30%, rgba(255,255,255,0.22) 0%, transparent 55%),
+        radial-gradient(circle at 20% 75%, rgba(255,255,255,0.08) 0%, transparent 50%);
     }
     .linkedin-badge {
       position: absolute;
-      top: 14px; right: 14px;
+      top: 12px; right: 14px;
       display: flex; align-items: center; gap: 6px;
-      background: rgba(10,102,194,0.15);
-      border: 1px solid rgba(10,102,194,0.35);
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border: 1px solid rgba(255,255,255,0.18);
       padding: 4px 10px 4px 8px;
       border-radius: var(--radius-pill);
       font-family: 'DM Mono', monospace;
       font-size: 0.66rem;
-      color: #4D9DE7;
+      color: #fff;
       letter-spacing: 0.05em;
     }
-    .linkedin-badge svg { width: 11px; height: 11px; fill: #4D9DE7; }
+    .linkedin-badge svg { width: 11px; height: 11px; fill: #fff; }
+    /* Body section below the banner */
+    .linkedin-body {
+      padding: 0 22px 20px;
+      position: relative;
+    }
     .linkedin-avatar {
-      width: 78px; height: 78px;
+      width: 72px; height: 72px;
       border-radius: 50%;
       overflow: hidden;
       display: flex; align-items: center; justify-content: center;
-      border: 2px solid var(--border2);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+      border: 3px solid var(--card);
+      margin-top: -36px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
       position: relative;
       background: linear-gradient(135deg, var(--gold) 0%, var(--gold-soft) 100%);
-      flex-shrink: 0;
     }
     .linkedin-avatar img {
       width: 100%; height: 100%;
@@ -1256,14 +1265,14 @@
       color: #0A0A0A;
       font-family: 'Cabinet Grotesk', sans-serif;
       font-weight: 900;
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       letter-spacing: -0.02em;
     }
     .linkedin-avatar-fallback .linkedin-avatar-initials { display: block; }
-    .linkedin-info { min-width: 0; }
+    .linkedin-info { margin-top: 12px; }
     .linkedin-name {
       font-family: 'Cabinet Grotesk', sans-serif;
-      font-size: 1.1rem; font-weight: 700;
+      font-size: 1.05rem; font-weight: 700;
       color: var(--text);
       letter-spacing: -0.01em;
       display: flex; align-items: center; gap: 8px;
@@ -1271,7 +1280,7 @@
     }
     .linkedin-pronouns {
       font-family: 'DM Mono', monospace;
-      font-size: 0.66rem;
+      font-size: 0.64rem;
       font-weight: 400;
       color: var(--muted);
       background: rgba(245,245,240,0.05);
@@ -1281,16 +1290,18 @@
       letter-spacing: 0.02em;
     }
     .linkedin-title {
-      font-size: 0.86rem;
+      font-size: 0.82rem;
       color: var(--muted);
-      margin-top: 3px;
+      margin-top: 4px;
       line-height: 1.5;
     }
     .linkedin-meta {
-      display: flex; gap: 14px; flex-wrap: wrap;
-      margin-top: 8px;
+      display: flex; gap: 12px; flex-wrap: wrap;
+      margin-top: 10px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
       font-family: 'DM Mono', monospace;
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       color: var(--muted);
     }
     .linkedin-meta strong {
@@ -1298,17 +1309,18 @@
       font-weight: 600;
     }
     .linkedin-cta {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      padding: 12px 22px;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%;
+      margin-top: 14px;
+      padding: 11px 16px;
       background: #0A66C2;
       color: #fff;
       border-radius: var(--radius-pill);
       font-family: 'Cabinet Grotesk', sans-serif;
-      font-size: 0.86rem;
+      font-size: 0.84rem;
       font-weight: 600;
       transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
-      flex-shrink: 0;
-      box-shadow: 0 4px 14px rgba(10,102,194,0.35);
+      box-shadow: 0 4px 14px rgba(10,102,194,0.32);
     }
     .linkedin-cta:hover {
       background: #0077B5;
@@ -1316,21 +1328,6 @@
       box-shadow: 0 8px 22px rgba(10,102,194,0.5);
     }
     .linkedin-cta svg { width: 14px; height: 14px; fill: #fff; }
-    @media (max-width: 720px) {
-      .linkedin-card {
-        grid-template-columns: 8px auto 1fr;
-        gap: 16px;
-        padding: 18px 22px 18px 0;
-      }
-      .linkedin-cta {
-        grid-column: 1 / -1;
-        margin: 4px 22px 0;
-      }
-      .linkedin-avatar { width: 64px; height: 64px; }
-      .linkedin-name { font-size: 1rem; }
-      .linkedin-title { font-size: 0.82rem; }
-      .linkedin-badge { top: 10px; right: 10px; }
-    }
 
     /* ══════════════════════════════
        CONTACT
@@ -2460,6 +2457,37 @@
             <div><div class="c-lbl">Fiverr <span class="c-badge" style="background:rgba(16,185,129,0.15);color:var(--green);">Also available</span></div><div class="c-val">fiverr.com/sweet_lemon_0_0</div></div>
           </a>
         </div>
+
+        <!-- LinkedIn social-proof card: fits inside the left column to balance the form's height -->
+        <a href="https://linkedin.com/in/hardik-singh-519265357" target="_blank" rel="noopener" class="linkedin-card reveal reveal-delay-3">
+          <div class="linkedin-banner" aria-hidden="true">
+            <div class="linkedin-badge">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+              LinkedIn
+            </div>
+          </div>
+          <div class="linkedin-body">
+            <div class="linkedin-avatar">
+              <img src="linkedin-avatar.jpeg" alt="Hardik Singh" onerror="this.style.display='none';this.parentElement.classList.add('linkedin-avatar-fallback');" />
+              <span class="linkedin-avatar-initials">HS</span>
+            </div>
+            <div class="linkedin-info">
+              <div class="linkedin-name">
+                Hardik Singh
+                <span class="linkedin-pronouns">He/Him</span>
+              </div>
+              <div class="linkedin-title">Python Web Scraping Specialist · Custom Scrapers for Digital Agencies</div>
+              <div class="linkedin-meta">
+                <span><strong>Delhi</strong>, India</span>
+                <span><strong>Self Employed</strong> · Bennett University</span>
+              </div>
+            </div>
+            <div class="linkedin-cta">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+              Connect on LinkedIn
+            </div>
+          </div>
+        </a>
       </div>
       <div class="contact-panel reveal">
         <h3>Start a Project</h3>
@@ -2517,33 +2545,6 @@
       </div>
     </div>
 
-    <!-- LinkedIn social-proof banner: full-width below the contact-grid -->
-    <a href="https://linkedin.com/in/hardik-singh-519265357" target="_blank" rel="noopener" class="linkedin-card reveal">
-      <div class="linkedin-accent" aria-hidden="true"></div>
-      <div class="linkedin-avatar">
-        <img src="linkedin-avatar.jpeg" alt="Hardik Singh" onerror="this.style.display='none';this.parentElement.classList.add('linkedin-avatar-fallback');" />
-        <span class="linkedin-avatar-initials">HS</span>
-      </div>
-      <div class="linkedin-info">
-        <div class="linkedin-name">
-          Hardik Singh
-          <span class="linkedin-pronouns">He/Him</span>
-        </div>
-        <div class="linkedin-title">Python Web Scraping Specialist · Custom Scrapers for Digital Agencies</div>
-        <div class="linkedin-meta">
-          <span><strong>Delhi</strong>, India</span>
-          <span><strong>Self Employed</strong> · Bennett University</span>
-        </div>
-      </div>
-      <div class="linkedin-cta">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
-        Connect on LinkedIn
-      </div>
-      <div class="linkedin-badge">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
-        LinkedIn
-      </div>
-    </a>
   </div>
 </section>
 
