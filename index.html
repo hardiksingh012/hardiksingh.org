@@ -1620,7 +1620,7 @@
       <div class="stat-track"><div class="stat-fill" data-width="85"></div></div>
     </div>
     <div class="stat-cell">
-      <div class="stat-num" data-count="5" data-suffix="+">0+</div>
+      <div class="stat-num" data-count="8" data-suffix="+">0+</div>
       <div class="stat-lbl">Industries Served</div>
       <div class="stat-track"><div class="stat-fill" data-width="70"></div></div>
     </div>
@@ -2016,7 +2016,7 @@
       <div>
         <div class="case-label">Google Ads Agency · USA</div>
         <h3 class="case-headline">2,500 verified records across 5 industries &amp; 4 US cities</h3>
-        <p>A digital marketing agency needed a clean B2B prospect list for their Google Ads campaigns targeting local service businesses - HVAC, plumbing, dental, legal, and real estate - across New York, Chicago, Houston, and Los Angeles.</p>
+        <p>A Google Ads specialist needed a clean B2B prospect list for their Google Ads campaigns targeting local service businesses - HVAC, plumbing, dental, legal, and real estate - across New York, Chicago, Houston, and Los Angeles.</p>
         <p>I built a multi-source scraper pulling from Google Maps and supplementary directories, deduplicated the dataset, verified phone formats, and flagged missing emails for secondary enrichment. Final delivery: a segmented Excel workbook, one tab per industry, CRM-ready.</p>
         <div class="case-quote">"Delivered clean, structured data across 5 industries in under 24 hours. Loaded straight into our CRM with zero cleanup required."</div>
       </div>
@@ -2160,10 +2160,6 @@
           <a href="tel:+917896841169" class="c-link reveal" data-d="1">
             <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
             <div><div class="c-lbl">Phone / WhatsApp</div><div class="c-val">+91 78968 41169</div></div>
-          </a>
-          <a href="https://fiverr.com/sweet_lemon_0_0" target="_blank" rel="noopener" class="c-link reveal" data-d="2">
-            <div class="c-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5" fill="#22c55e" stroke="none"/></svg></div>
-            <div><div class="c-lbl">Fiverr <span class="c-badge green">Also available</span></div><div class="c-val">fiverr.com/sweet_lemon_0_0</div></div>
           </a>
         </div>
         <a href="https://linkedin.com/in/hardik-singh-519265357" target="_blank" rel="noopener" class="linkedin-card reveal" data-d="3">
@@ -2386,6 +2382,20 @@ const revObs = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+
+/* Reliability fallback: never leave content hidden. If any reveal or
+   hero-sequence element hasn't become visible within 2s of page load,
+   force it visible regardless of scroll position or observer support. */
+function forceRevealAll() {
+  document.documentElement.classList.add('loaded');
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+    el.classList.add('visible');
+    el.style.opacity = '1';
+    el.style.transform = 'none';
+  });
+}
+window.addEventListener('load', () => setTimeout(forceRevealAll, 2000));
+setTimeout(forceRevealAll, 5000);
 
 /* ════ Typewriter — cycling roles ════ */
 (function () {
