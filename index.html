@@ -1471,10 +1471,15 @@
        and the menu animation stay at 60fps on phone GPUs. */
     @media (max-width: 768px) {
       .noise { display: none; }
-      .hero-blob.b1, .hero-blob.b2 { animation: none; filter: blur(70px); }
-      .hero-blob.b2 { display: none; }
+      .hero-blob { display: none; }
       .avatar-ring, .avatar-inner { animation: none; }
       .particles { display: none; }
+      /* Freeze the infinite marquees - keyword strip shows one static
+         set, tool chips become a swipeable row instead. */
+      .marquee-track { animation: none; }
+      .tools-track { animation: none; }
+      .tools-marquee { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .tools-marquee::before, .tools-marquee::after { display: none; }
       nav.scrolled {
         background: rgba(10,10,11,0.96);
         backdrop-filter: none;
@@ -2461,6 +2466,16 @@ document.addEventListener('click', e => {
       { h: '<span class="t-ok">✓</span> CRM-ready workbook delivered', t: 22 }
     ]
   ];
+  /* Mobile: render one static scene, no typing loop */
+  if (window.innerWidth < 768) {
+    scenes[0].forEach(line => {
+      const el = document.createElement('span');
+      el.className = 'tl';
+      el.innerHTML = line.h;
+      body.appendChild(el);
+    });
+    return;
+  }
   let scene = 0;
   function playScene() {
     body.innerHTML = '';
