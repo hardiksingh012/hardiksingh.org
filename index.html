@@ -1470,15 +1470,29 @@
     /* Mobile performance: freeze the expensive layers so scrolling
        and the menu animation stay at 60fps on phone GPUs. */
     @media (max-width: 768px) {
-      .noise { animation: none; }
+      .noise { display: none; }
       .hero-blob.b1, .hero-blob.b2 { animation: none; filter: blur(70px); }
       .hero-blob.b2 { display: none; }
       .avatar-ring, .avatar-inner { animation: none; }
+      .particles { display: none; }
       nav.scrolled {
         background: rgba(10,10,11,0.96);
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
       }
+      /* Live-blur surfaces are the main scroll-jank source on phone
+         GPUs - swap every glass card to a cheap solid fill on mobile. */
+      .hero-badge, .btn-ghost, .term, .avatar-chip,
+      .stat-cell, .niche-card, .service-card, .tool-chip,
+      .price-card, .addons, .sample-card, .faq-item,
+      .c-link, .linkedin-card, .contact-panel, .custom-select-options {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background-color: #101012;
+      }
+      .price-card.popular { background: #0f1512; }
+      .stat-cell { box-shadow: none; }
+      .stat-cell:hover { box-shadow: none; }
     }
     @media (max-width: 640px) {
       section { padding: 80px 20px; }
@@ -2325,11 +2339,13 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
   }
 })();
 
-/* ════ Scroll progress + nav behaviour ════ */
+/* ════ Scroll progress + nav behaviour (rAF-throttled) ════ */
 const prog = document.getElementById('scroll-progress');
 const nav = document.getElementById('nav');
 let lastY = 0;
-window.addEventListener('scroll', () => {
+let scrollScheduled = false;
+function onScrollFrame() {
+  scrollScheduled = false;
   const y = window.scrollY;
   prog.style.width = (y / (document.body.scrollHeight - window.innerHeight) * 100) + '%';
   nav.classList.toggle('scrolled', y > 30);
@@ -2337,6 +2353,12 @@ window.addEventListener('scroll', () => {
   else if (y < lastY - 6 || y < 400) nav.classList.remove('nav-hidden');
   lastY = y;
   updateTimeline();
+}
+window.addEventListener('scroll', () => {
+  if (!scrollScheduled) {
+    scrollScheduled = true;
+    requestAnimationFrame(onScrollFrame);
+  }
 }, { passive: true });
 
 /* ════ Mobile menu ════ */
