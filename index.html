@@ -9,6 +9,7 @@
   <meta name="keywords" content="web scraping, python web scraper, lead generation, b2b data, business listings, data extraction, web scraping services, hire web scraper, scrape google maps, scrape yelp, hvac leads, law firm leads, real estate leads, healthcare leads" />
   <meta name="theme-color" content="#0B0B0D" />
   <meta name="google-site-verification" content="HzbdxStQSIdQCZMG-EhKOytcy4jbWoauKr0Ryj9oBAw" />
+  <script>try{if(localStorage.getItem('theme')==='light')document.documentElement.dataset.theme='light'}catch(e){}</script>
   <link rel="canonical" href="https://hardiksingh.org/" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/linkedin-avatar.jpeg" />
@@ -106,7 +107,89 @@
       --font-d:    'Cabinet Grotesk', 'Inter', sans-serif;
       --font-b:    'Inter', system-ui, sans-serif;
       --font-m:    'DM Mono', ui-monospace, monospace;
+      --btn-text:  #0B0B0D;
+      --input-bg:  rgba(11,11,13,0.55);
+      --input-bg-focus: rgba(11,11,13,0.8);
+      --input-focus-border: rgba(245,245,240,0.45);
+      --input-focus-shadow: rgba(245,245,240,0.06);
+      --menu-bg:   rgba(20,20,24,0.97);
     }
+
+    /* ════════════════════════════════════════════════════════
+       LIGHT THEME — token flip + targeted fixes
+    ════════════════════════════════════════════════════════ */
+    [data-theme="light"] {
+      --bg:        #F4F3EF;
+      --bg-soft:   #EFEEE8;
+      --surface:   #FBFAF6;
+      --card:      #FFFFFF;
+      --card-2:    #F7F6F1;
+      --border:    rgba(17,17,21,0.10);
+      --border-2:  rgba(17,17,21,0.17);
+      --ivory:     #16161A;
+      --ivory-dim: #45454C;
+      --text:      #16161A;
+      --text-2:    #2E2E34;
+      --muted:     #67676E;
+      --muted-2:   #9A9AA1;
+      --glow:      rgba(17,17,21,0.10);
+      --grad:      linear-gradient(135deg, #101014 0%, #3A3A41 55%, #6E6E75 100%);
+      --btn-text:  #F5F5F0;
+      --input-bg:  rgba(255,255,255,0.85);
+      --input-bg-focus: #FFFFFF;
+      --input-focus-border: rgba(17,17,21,0.4);
+      --input-focus-shadow: rgba(17,17,21,0.05);
+      --menu-bg:   rgba(255,255,255,0.98);
+    }
+    [data-theme="light"] .grain,
+    [data-theme="light"] .ambient { display: none; }
+    [data-theme="light"] ::selection { background: rgba(22,22,26,0.9); color: #F5F5F0; }
+    [data-theme="light"] ::-webkit-scrollbar-thumb { background: rgba(17,17,21,0.28); }
+    [data-theme="light"] nav.scrolled { background: rgba(244,243,239,0.8); }
+    [data-theme="light"] .hero-grid-bg {
+      background-image:
+        linear-gradient(rgba(17,17,21,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(17,17,21,0.05) 1px, transparent 1px);
+    }
+    [data-theme="light"] .ghost { -webkit-text-stroke: 1px rgba(17,17,21,0.07); }
+    [data-theme="light"] .svc-num { -webkit-text-stroke: 1px rgba(17,17,21,0.2); }
+    [data-theme="light"] .service-card:hover .svc-num { -webkit-text-stroke-color: rgba(17,17,21,0.4); }
+    [data-theme="light"] .footer-word { -webkit-text-stroke: 1px rgba(17,17,21,0.12); }
+    [data-theme="light"] .cursor-dot { box-shadow: 0 0 12px rgba(17,17,21,0.3); }
+    [data-theme="light"] body.cursor-hover .cursor-dot {
+      background: rgba(17,17,21,0.1);
+      box-shadow: 0 0 24px rgba(17,17,21,0.2), inset 0 0 0 1.5px var(--ivory);
+    }
+    [data-theme="light"] .btn-primary { box-shadow: 0 6px 30px rgba(17,17,21,0.16); }
+    [data-theme="light"] .btn-primary:hover { box-shadow: 0 14px 44px rgba(17,17,21,0.24); }
+    [data-theme="light"] .nav-cta { box-shadow: 0 4px 24px rgba(17,17,21,0.14); }
+    [data-theme="light"] .sample-panel { background: rgba(255,255,255,0.75); }
+    [data-theme="light"] .linkedin-badge { background: rgba(255,255,255,0.12); color: #C9C9C2; }
+    [data-theme="light"] .linkedin-badge svg { fill: #C9C9C2; }
+    [data-theme="light"] .mobile-menu { background: #FFFFFF !important; }
+    [data-theme="light"] .spinner {
+      border-color: rgba(245,245,240,0.3);
+      border-top-color: #F5F5F0;
+    }
+
+    /* ── Theme toggle button ── */
+    .theme-toggle {
+      width: 38px; height: 38px; border-radius: 50%;
+      border: 1px solid var(--border-2);
+      display: inline-flex; align-items: center; justify-content: center;
+      color: var(--ivory-dim);
+      flex: 0 0 auto;
+      transition: color 0.3s, border-color 0.3s, transform 0.4s var(--ease-out);
+    }
+    .theme-toggle:hover { color: var(--ivory); border-color: var(--ivory-dim); transform: rotate(20deg); }
+    .theme-toggle svg {
+      width: 17px; height: 17px;
+      stroke: currentColor; fill: none;
+      stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .tt-moon { display: none; }
+    [data-theme="light"] .tt-sun { display: none; }
+    [data-theme="light"] .tt-moon { display: block; }
 
     /* JS owns smooth scrolling (fixed 480ms regardless of distance) */
     html { scroll-behavior: auto; }
@@ -237,7 +320,7 @@
     .nav-links a:hover { color: var(--text); }
     .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
     .nav-cta {
-      background: var(--ivory); color: #0B0B0D;
+      background: var(--ivory); color: var(--btn-text);
       padding: 11px 24px; border-radius: var(--r-pill);
       font-family: var(--font-d); font-weight: 800; font-size: 0.85rem;
       letter-spacing: 0.01em;
@@ -298,10 +381,10 @@
     .mobile-menu a:hover { color: var(--ivory); padding-left: 10px; }
     .mobile-menu .mm-cta {
       margin-top: 16px; border: none;
-      background: var(--ivory); color: #0B0B0D; border-radius: var(--r-pill);
+      background: var(--ivory); color: var(--btn-text); border-radius: var(--r-pill);
       justify-content: center; font-weight: 800; padding: 15px 24px;
     }
-    .mobile-menu .mm-cta:hover { color: #0B0B0D; padding-left: 24px; }
+    .mobile-menu .mm-cta:hover { color: var(--btn-text); padding-left: 24px; }
 
     /* ════════════════════════════════════════════════════════
        BUTTONS
@@ -318,7 +401,7 @@
     .btn svg { width: 15px; height: 15px; flex-shrink: 0; transition: transform 0.3s var(--ease-out); }
     .btn:hover svg { transform: translateX(3px); }
     .btn-primary {
-      background: var(--ivory); color: #0B0B0D;
+      background: var(--ivory); color: var(--btn-text);
       box-shadow: 0 6px 30px rgba(245,245,240,0.14);
     }
     .btn-primary:hover { box-shadow: 0 14px 44px rgba(245,245,240,0.26); }
@@ -800,7 +883,7 @@
     }
     .pop-badge {
       position: absolute; top: 0; left: 50%; transform: translate(-50%,-50%);
-      background: var(--ivory); color: #0B0B0D;
+      background: var(--ivory); color: var(--btn-text);
       font-family: var(--font-m); font-size: 0.62rem; font-weight: 700;
       letter-spacing: 0.16em;
       padding: 6px 16px; border-radius: var(--r-pill);
@@ -1224,7 +1307,7 @@
     .req { color: var(--ivory-dim); }
     .form-group input, .form-group textarea {
       width: 100%;
-      background: rgba(11,11,13,0.55);
+      background: var(--input-bg);
       border: 1px solid var(--border-2);
       border-radius: var(--r-sm);
       color: var(--text);
@@ -1235,16 +1318,16 @@
     .form-group textarea { min-height: 120px; resize: vertical; line-height: 1.6; }
     .form-group input::placeholder, .form-group textarea::placeholder { color: var(--muted-2); }
     .form-group input:focus, .form-group textarea:focus {
-      outline: none; border-color: rgba(245,245,240,0.45);
-      background: rgba(11,11,13,0.8);
-      box-shadow: 0 0 0 3px rgba(245,245,240,0.06);
+      outline: none; border-color: var(--input-focus-border);
+      background: var(--input-bg-focus);
+      box-shadow: 0 0 0 3px var(--input-focus-shadow);
     }
 
     /* Custom select */
     .custom-select { position: relative; }
     .custom-select-trigger {
       width: 100%; display: flex; justify-content: space-between; align-items: center;
-      background: rgba(11,11,13,0.55);
+      background: var(--input-bg);
       border: 1px solid var(--border-2);
       border-radius: var(--r-sm);
       color: var(--text); font-size: 0.93rem;
@@ -1261,7 +1344,7 @@
     .custom-select-options {
       position: absolute; top: calc(100% + 8px); left: 0; right: 0; z-index: 50;
       list-style: none;
-      background: rgba(20,20,24,0.97);
+      background: var(--menu-bg);
       backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
       border: 1px solid var(--border-2);
       border-radius: var(--r-sm);
@@ -1286,7 +1369,7 @@
     .form-submit {
       width: 100%;
       display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-      background: var(--ivory); color: #0B0B0D;
+      background: var(--ivory); color: var(--btn-text);
       font-family: var(--font-d); font-weight: 800; font-size: 0.98rem;
       padding: 16px 24px; border-radius: var(--r-pill);
       box-shadow: 0 6px 30px rgba(245,245,240,0.13);
@@ -1471,6 +1554,10 @@
       <a href="#process">Process</a>
       <a href="#faq">FAQ</a>
     </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light and dark theme">
+      <svg class="tt-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="tt-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
     <a href="#contact" class="nav-cta magnetic">Get a Free Quote</a>
     <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
@@ -2214,6 +2301,34 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
   document.addEventListener('mouseup', () => document.body.classList.remove('cursor-down'));
   document.addEventListener('mouseleave', () => document.body.classList.add('cursor-hidden'));
   document.addEventListener('mouseenter', () => document.body.classList.remove('cursor-hidden'));
+})();
+
+/* ════ Theme toggle ════ */
+(function () {
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  const metaTheme = document.querySelector('meta[name="theme-color"]');
+  function apply(t) {
+    if (t === 'light') document.documentElement.dataset.theme = 'light';
+    else delete document.documentElement.dataset.theme;
+    if (metaTheme) metaTheme.content = t === 'light' ? '#F4F3EF' : '#0B0B0D';
+    /* Some engines skip restyling form controls on ancestor attribute
+       changes - force a recalc so inputs pick up the new theme. */
+    document.querySelectorAll('.form-group input, .form-group textarea').forEach(el => {
+      const d = el.style.display;
+      el.style.display = 'none';
+      void el.offsetHeight;
+      el.style.display = d;
+    });
+  }
+  let theme = 'dark';
+  try { theme = localStorage.getItem('theme') || 'dark'; } catch (e) {}
+  apply(theme);
+  btn.addEventListener('click', () => {
+    theme = theme === 'light' ? 'dark' : 'light';
+    apply(theme);
+    try { localStorage.setItem('theme', theme); } catch (e) {}
+  });
 })();
 
 /* ════ Scroll progress + nav behaviour (rAF-throttled) ════ */
