@@ -245,6 +245,7 @@
     ════════════════════════════════════════════════════════ */
     .cursor-dot { display: none; }
     @media (hover: hover) and (pointer: fine) {
+      body, a, button, input, textarea, select, label, [role="option"] { cursor: none; }
       .cursor-dot {
         display: block; position: fixed; top: 0; left: 0; z-index: 3000;
         width: 10px; height: 10px; border-radius: 50%;
@@ -2733,10 +2734,10 @@ form.addEventListener('submit', async e => {
 
   /* 1 ── Hero entrance choreography */
   gsap.from(['.hero-badge', '.hero-name', '.hero-role', '.hero-tagline', '.hero-sub', '.hero-btns', '.hero-meta'], {
-    y: 28, opacity: 0, duration: 1, ease: 'power3.out', stagger: 0.09, delay: 0.1, clearProps: 'all'
+    y: 44, opacity: 0, duration: 1.1, ease: 'power3.out', stagger: 0.13, delay: 0.1, clearProps: 'all'
   });
   gsap.from('.hero-visual', {
-    y: 34, opacity: 0, duration: 1.1, ease: 'power3.out', delay: 0.45, clearProps: 'all'
+    y: 50, opacity: 0, duration: 1.2, ease: 'power3.out', delay: 0.55, clearProps: 'all'
   });
 
   /* 2 ── Scroll-in staggered rises */
@@ -2744,8 +2745,8 @@ form.addEventListener('submit', async e => {
     const els = typeof targets === 'string' ? document.querySelectorAll(targets) : targets;
     if (!els.length) return;
     gsap.from(els, Object.assign({
-      scrollTrigger: { trigger: trigger, start: 'top 82%', once: true },
-      y: 26, opacity: 0, duration: 0.8, ease: 'power3.out', stagger: 0.08, clearProps: 'all'
+      scrollTrigger: { trigger: trigger, start: 'top 84%', once: true },
+      y: 44, opacity: 0, duration: 0.95, ease: 'power3.out', stagger: 0.11, clearProps: 'all'
     }, extra || {}));
   }
   document.querySelectorAll('.section-head').forEach(h => {
@@ -2762,7 +2763,7 @@ form.addEventListener('submit', async e => {
   /* 3 ── Parallax drift: terminal + ghost watermarks */
   gsap.to('.term', {
     scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 0.6 },
-    y: 70, ease: 'none'
+    y: 100, ease: 'none'
   });
   document.querySelectorAll('.ghost').forEach(g => {
     gsap.to(g, {
