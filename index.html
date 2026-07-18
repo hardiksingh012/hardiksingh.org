@@ -165,15 +165,15 @@
       .cursor-dot {
         display: block; position: fixed; top: 0; left: 0; z-index: 3000;
         width: 10px; height: 10px; border-radius: 50%;
-        background: var(--green); pointer-events: none;
-        box-shadow: 0 0 12px rgba(16,185,129,0.6);
+        background: var(--ivory); pointer-events: none;
+        box-shadow: 0 0 12px rgba(245,245,240,0.5);
         transition: width 0.3s var(--ease-out), height 0.3s var(--ease-out),
                     background 0.3s, opacity 0.25s;
       }
       body.cursor-hover .cursor-dot {
         width: 34px; height: 34px;
-        background: rgba(16,185,129,0.22);
-        box-shadow: 0 0 24px rgba(16,185,129,0.35), inset 0 0 0 1.5px var(--green);
+        background: rgba(245,245,240,0.14);
+        box-shadow: 0 0 24px rgba(245,245,240,0.3), inset 0 0 0 1.5px var(--ivory);
       }
       body.cursor-down .cursor-dot { width: 8px; height: 8px; }
       body.cursor-hidden .cursor-dot { opacity: 0; }
