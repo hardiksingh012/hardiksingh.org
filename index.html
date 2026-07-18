@@ -2719,5 +2719,74 @@ form.addEventListener('submit', async e => {
 })();
 </script>
 
+<!-- GSAP scroll choreography: desktop-only, fails safe. If the CDN is
+     blocked or GSAP errors, no element is ever hidden - all initial
+     states are set by JS at animation time, never in CSS. -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script>
+(function () {
+  if (!window.gsap || !window.ScrollTrigger) return;
+  if (reduceMotion) return;
+  if (!window.matchMedia('(min-width: 769px) and (hover: hover)').matches) return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* 1 ── Hero entrance choreography */
+  gsap.from(['.hero-badge', '.hero-name', '.hero-role', '.hero-tagline', '.hero-sub', '.hero-btns', '.hero-meta'], {
+    y: 28, opacity: 0, duration: 1, ease: 'power3.out', stagger: 0.09, delay: 0.1, clearProps: 'all'
+  });
+  gsap.from('.hero-visual', {
+    y: 34, opacity: 0, duration: 1.1, ease: 'power3.out', delay: 0.45, clearProps: 'all'
+  });
+
+  /* 2 ── Scroll-in staggered rises */
+  function rise(targets, trigger, extra) {
+    const els = typeof targets === 'string' ? document.querySelectorAll(targets) : targets;
+    if (!els.length) return;
+    gsap.from(els, Object.assign({
+      scrollTrigger: { trigger: trigger, start: 'top 82%', once: true },
+      y: 26, opacity: 0, duration: 0.8, ease: 'power3.out', stagger: 0.08, clearProps: 'all'
+    }, extra || {}));
+  }
+  document.querySelectorAll('.section-head').forEach(h => {
+    rise(h.querySelectorAll(':scope > *:not(.ghost)'), h);
+  });
+  rise('.stat-cell', '#stats');
+  rise('.niche-card', '.niches-grid', { stagger: 0.06 });
+  rise('.service-card', '.services-grid');
+  rise('.tool-chip', '.tools-strip', { stagger: 0.06 });
+  rise('.price-card', '.pricing-grid');
+  rise('.step', '.process-steps');
+  rise('.faq-item', '#faq-wrap', { stagger: 0.05 });
+
+  /* 3 ── Parallax drift: terminal + ghost watermarks */
+  gsap.to('.term', {
+    scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 0.6 },
+    y: 70, ease: 'none'
+  });
+  document.querySelectorAll('.ghost').forEach(g => {
+    gsap.to(g, {
+      scrollTrigger: { trigger: g, start: 'top bottom', end: 'bottom top', scrub: 0.8 },
+      yPercent: 36, ease: 'none'
+    });
+  });
+
+  /* ── Failsafe: if the animation ticker is dead (throttled tab,
+     broken rAF), kill every tween and restore full visibility.
+     Content visibility always wins over choreography. */
+  let ticks = 0;
+  gsap.ticker.add(function () { ticks++; });
+  setTimeout(function () {
+    if (ticks < 5) {
+      ScrollTrigger.getAll().forEach(function (t) { t.kill(); });
+      gsap.set(['.hero-badge', '.hero-name', '.hero-role', '.hero-tagline', '.hero-sub',
+                '.hero-btns', '.hero-meta', '.hero-visual', '.section-head > *', '.stat-cell',
+                '.niche-card', '.service-card', '.tool-chip', '.price-card', '.step',
+                '.faq-item', '.term', '.ghost'], { clearProps: 'all' });
+    }
+  }, 3000);
+})();
+</script>
+
 </body>
 </html>
