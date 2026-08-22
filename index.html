@@ -244,7 +244,7 @@
     ════════════════════════════════════════════════════════ */
     .cursor-dot { display: none; }
     @media (hover: hover) and (pointer: fine) {
-      body, a, button, input, textarea, select, label, [role="option"] { cursor: none; }
+      *, *::before, *::after { cursor: none !important; }
       .cursor-dot {
         display: block; position: fixed; top: 0; left: 0; z-index: 3000;
         width: 10px; height: 10px; border-radius: 50%;
