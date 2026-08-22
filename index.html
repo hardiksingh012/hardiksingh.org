@@ -837,6 +837,32 @@
     .service-card:hover .tag { color: var(--ivory-dim); border-color: var(--border-2); }
 
     /* ════════════════════════════════════════════════════════
+       ADD-ONS
+    ════════════════════════════════════════════════════════ */
+    .addons-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+    }
+    .addon-card { padding: 28px 26px; }
+    .addon-top {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      gap: 14px; margin-bottom: 12px;
+    }
+    .addon-title {
+      font-family: var(--font-d); font-weight: 800;
+      font-size: 1.08rem; letter-spacing: -0.015em;
+    }
+    .addon-price {
+      flex-shrink: 0;
+      font-family: var(--font-m); font-size: 0.72rem; letter-spacing: 0.06em;
+      color: var(--ivory);
+      border: 1px solid var(--border-2);
+      background: rgba(245,245,240,0.06);
+      padding: 5px 12px; border-radius: var(--r-pill);
+      white-space: nowrap;
+    }
+    .addon-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
+
+    /* ════════════════════════════════════════════════════════
        TOOLS STRIP
     ════════════════════════════════════════════════════════ */
     #tools { padding-top: 30px; }
@@ -1467,6 +1493,7 @@
       .stat-cell:nth-child(3) { border-left: none; }
       .stat-cell:nth-child(n+3) { border-top: 1px solid var(--border); }
       .niches-grid { grid-template-columns: 1fr 1fr; }
+      .addons-grid { grid-template-columns: 1fr 1fr; }
       .tools-strip { grid-template-columns: repeat(3, 1fr); }
       .pricing-grid { grid-template-columns: 1fr 1fr; }
       .sample-card { grid-template-columns: 1fr; padding: 44px 38px; }
@@ -1488,6 +1515,7 @@
       .stats-grid { grid-template-columns: 1fr 1fr; }
       .stat-cell { padding: 30px 22px 26px; }
       .niches-grid { grid-template-columns: 1fr; }
+      .addons-grid { grid-template-columns: 1fr; }
       .services-grid { grid-template-columns: 1fr; }
       .tools-strip { grid-template-columns: repeat(2, 1fr); }
       .pricing-grid { grid-template-columns: 1fr; }
@@ -1831,6 +1859,64 @@
           <li>Cancel anytime</li>
         </ul>
         <a href="#contact" class="btn btn-ghost" data-prefill-records="retainer" data-prefill-tier="Monthly Retainer (from $800/month)">Enquire</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hairline"></div>
+
+<!-- ════ ADD-ONS ════ -->
+<section id="addons">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="ghost" aria-hidden="true">ADD-ONS</div>
+      <div class="eyebrow">Add-ons</div>
+      <h2 class="section-title">Enhance your order</h2>
+      <p class="section-sub">Add any of these to any plan at checkout. Just mention them when you request your sample.</p>
+    </div>
+    <div class="addons-grid">
+      <div class="addon-card spot reveal">
+        <div class="addon-top">
+          <div class="addon-title">Email Verification</div>
+          <span class="addon-price">+$50</span>
+        </div>
+        <p>Every email SMTP verified before delivery. Bounce rate under 2% guaranteed.</p>
+      </div>
+      <div class="addon-card spot reveal" data-d="1">
+        <div class="addon-top">
+          <div class="addon-title">Phone Verification</div>
+          <span class="addon-price">+$75</span>
+        </div>
+        <p>Each number checked as active and dialable. No dead lines in your list.</p>
+      </div>
+      <div class="addon-card spot reveal" data-d="2">
+        <div class="addon-top">
+          <div class="addon-title">Rush Delivery</div>
+          <span class="addon-price">+$100</span>
+        </div>
+        <p>Delivery within 4 hours instead of 24. For campaigns that cannot wait.</p>
+      </div>
+      <div class="addon-card spot reveal" data-d="3">
+        <div class="addon-top">
+          <div class="addon-title">CRM Import Ready</div>
+          <span class="addon-price">+$30</span>
+        </div>
+        <p>Data formatted specifically for HubSpot, Salesforce, Pipedrive or any CRM you use. No reformatting needed.</p>
+      </div>
+      <div class="addon-card spot reveal" data-d="4">
+        <div class="addon-top">
+          <div class="addon-title">Weekly Refresh</div>
+          <span class="addon-price">+$150/month</span>
+        </div>
+        <p>Same list refreshed every week with new contacts as old ones get contacted. Never run out of fresh targets.</p>
+      </div>
+      <div class="addon-card spot reveal" data-d="4">
+        <div class="addon-top">
+          <div class="addon-title">Competitor Mapping</div>
+          <span class="addon-price">+$200</span>
+        </div>
+        <p>Your client's top 5 competitors mapped by pricing, positioning and key contacts. Delivered as a structured report alongside your data.</p>
       </div>
     </div>
   </div>
