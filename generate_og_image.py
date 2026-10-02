@@ -34,7 +34,7 @@ ACCENT_SOFT = (220, 220, 213)      # slightly brighter than --gold-soft
 BORDER      = (52, 52, 58)
 GREEN       = (16, 185, 129)
 
-OUT_PATH    = "og-image.png"
+OUT_PATH = "og-image.jpg"
 AVATAR_PATH = "linkedin-avatar.jpeg"
 
 # ── Font loader (Windows / mac / linux) ───────────────────
@@ -149,13 +149,13 @@ draw.text((TX, NAME_Y), "Hardik Singh", fill=TEXT, font=FONT_NAME)
 # Role - placed below the headline accounting for its actual rendered height
 nbbox = draw.textbbox((TX, NAME_Y), "Hardik Singh", font=FONT_NAME)
 ROLE_Y = nbbox[3] + 28 * SCALE
-draw.text((TX, ROLE_Y), "Python Web Scraping Specialist",
+draw.text((TX, ROLE_Y), "AI Chatbots & Automation",
           fill=ACCENT_SOFT, font=FONT_ROLE)
 
 # Meta line - placed below the role
-rbbox = draw.textbbox((TX, ROLE_Y), "Python Web Scraping Specialist", font=FONT_ROLE)
+rbbox = draw.textbbox((TX, ROLE_Y), "AI Chatbots & Automation", font=FONT_ROLE)
 META_Y = rbbox[3] + 28 * SCALE
-meta_text = "Clean data  ·  24h delivery  ·  2,500+ records"
+meta_text = "24/7 AI receptionist  ·  Live in 7 days"
 draw.text((TX, META_Y), meta_text, fill=MUTED_BRIGHT, font=FONT_META)
 
 # Domain tag bottom-right
@@ -169,5 +169,5 @@ draw.text(
 
 # ── Downsample to 1200x630 with LANCZOS for crisp output ──
 final = img.resize((1200, 630), Image.LANCZOS)
-final.save(OUT_PATH, "PNG", optimize=True)
+final.save(OUT_PATH, "JPEG", quality=88, optimize=True, progressive=True)
 print(f"Wrote {OUT_PATH}  ({os.path.getsize(OUT_PATH) // 1024} KB)")
