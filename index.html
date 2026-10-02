@@ -46,7 +46,7 @@
     "telephone": "+91-78968-41169",
     "email": "hardik@hardiksingh.org",
     "priceRange": "From $1500",
-    "areaServed": "Worldwide",
+    "areaServed": ["United States", "United Kingdom", "Australia", "Canada"],
     "founder": {
       "@type": "Person",
       "name": "Hardik Singh",
@@ -65,14 +65,69 @@
   }
   </script>
 
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How long does setup take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most projects go live within 5 to 7 days from our first call."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need technical knowledge?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "None at all. I handle everything from build to deployment."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if the AI cannot answer a question?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The AI escalates to you automatically via email or SMS so no customer is ever left without a response."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can it integrate with my existing software?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. I integrate with most CRMs, calendar tools and communication platforms."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens after it goes live?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "I handle all maintenance, updates and optimisation as part of the monthly fee."
+      }
+    }
+  ]
+}
+  </script>
+
   <!-- Cabinet Grotesk via Fontshare -->
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
   <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
-  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&display=swap" rel="stylesheet">
+  <!-- Headline weights (700/800/900): preloaded so the hero does not reflow on font swap -->
+  <link rel="preload" href="https://cdn.fontshare.com/wf/XMXWOHABYLQDJ42L65EFRYNVRY37HQCB/B2O4O6V3JMFM2WDCYQI3A47L5U4THDUL/WN5274VQ3AUBDFP74GB4EC4XYJ3EKVNE.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="https://cdn.fontshare.com/wf/ZX6AQLSFYVDPN2URWO2MQFGTYYOHIS64/TPYPKOYWFQVNJHLLRXD4KFYX4LUOUW4Z/6QH2ALVTTK7IRVO5MYOQQ3OZNXW5SSS3.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="https://cdn.fontshare.com/wf/54BYDK52GK4J6SPDN2E656FIZHUETKL3/ACYE4XDNEUAHIOQEOGPYPDVAVDI5P67Q/TZVUWRP4UW5PEJWBLXHG5VVGPODI2WLC.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="style" href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&display=swap"></noscript>
   <!-- Inter + DM Mono via Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap"></noscript>
 
   <style>
     /* ════════════════════════════════════════════════════════
@@ -117,7 +172,7 @@
     }
 
     /* ════════════════════════════════════════════════════════
-       LIGHT THEME — token flip + targeted fixes
+       LIGHT THEME - token flip + targeted fixes
     ════════════════════════════════════════════════════════ */
     [data-theme="light"] {
       --bg:        #F4F3EF;
@@ -323,7 +378,7 @@
     .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
     .nav-cta {
       background: var(--ivory); color: var(--btn-text);
-      padding: 11px 24px; border-radius: var(--r-pill);
+      padding: 11px 24px; border-radius: var(--r-sm);
       font-family: var(--font-d); font-weight: 800; font-size: 0.85rem;
       letter-spacing: 0.01em;
       box-shadow: 0 4px 24px rgba(245,245,240,0.12);
@@ -383,7 +438,7 @@
     .mobile-menu a:hover { color: var(--ivory); padding-left: 10px; }
     .mobile-menu .mm-cta {
       margin-top: 16px; border: none;
-      background: var(--ivory); color: var(--btn-text); border-radius: var(--r-pill);
+      background: var(--ivory); color: var(--btn-text); border-radius: var(--r-sm);
       justify-content: center; font-weight: 800; padding: 15px 24px;
     }
     .mobile-menu .mm-cta:hover { color: var(--btn-text); padding-left: 24px; }
@@ -393,7 +448,7 @@
     ════════════════════════════════════════════════════════ */
     .btn {
       display: inline-flex; align-items: center; gap: 10px;
-      padding: 16px 32px; border-radius: var(--r-pill);
+      padding: 16px 32px; border-radius: var(--r-sm);
       font-family: var(--font-d); font-weight: 800; font-size: 0.95rem;
       letter-spacing: 0.01em; cursor: pointer;
       transition: transform 0.35s var(--ease-out), box-shadow 0.35s, background 0.3s, border-color 0.3s;
@@ -472,7 +527,7 @@
     }
 
     /* ════════════════════════════════════════════════════════
-       SCROLL REVEALS — removed. Content is always visible so no
+       SCROLL REVEALS - removed. Content is always visible so no
        section can ever be stuck hidden if the observer fails.
     ════════════════════════════════════════════════════════ */
     .reveal { opacity: 1; transform: none; filter: none; }
@@ -501,7 +556,7 @@
       gap: 60px; align-items: center; position: relative; z-index: 2;
     }
 
-    /* Load-in sequence removed — hero is always visible */
+    /* Load-in sequence removed - hero is always visible */
     .h-seq { opacity: 1; transform: none; filter: none; }
 
     .hero-badge {
@@ -527,8 +582,8 @@
 
     .hero-name {
       font-family: var(--font-d); font-weight: 900;
-      font-size: clamp(3rem, 7.2vw, 5.4rem);
-      line-height: 0.98; letter-spacing: -0.04em;
+      font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+      line-height: 1.02; letter-spacing: -0.035em;
       margin-bottom: 18px;
     }
     .grad-text {
@@ -1305,7 +1360,7 @@
       display: inline-flex; align-items: center; gap: 8px;
       font-family: var(--font-d); font-weight: 700; font-size: 0.8rem;
       color: var(--ivory);
-      border: 1px solid var(--border-2); border-radius: var(--r-pill);
+      border: 1px solid var(--border-2); border-radius: var(--r-sm);
       padding: 8px 18px;
       transition: background 0.25s, border-color 0.25s;
     }
@@ -1399,7 +1454,7 @@
       display: inline-flex; align-items: center; justify-content: center; gap: 10px;
       background: var(--ivory); color: var(--btn-text);
       font-family: var(--font-d); font-weight: 800; font-size: 0.98rem;
-      padding: 16px 24px; border-radius: var(--r-pill);
+      padding: 16px 24px; border-radius: var(--r-sm);
       box-shadow: 0 6px 30px rgba(245,245,240,0.13);
       transition: transform 0.35s var(--ease-out), box-shadow 0.35s, opacity 0.3s;
       will-change: transform;
@@ -1536,7 +1591,7 @@
     }
 
     /* ════════════════════════════════════════════════════════
-       MOBILE PERFORMANCE — freeze expensive layers on phones so
+       MOBILE PERFORMANCE - freeze expensive layers on phones so
        scrolling and the menu stay at 60fps. Desktop unaffected.
     ════════════════════════════════════════════════════════ */
     @media (max-width: 768px) {
@@ -1607,10 +1662,10 @@
   <div class="hero-inner">
     <div class="hero-text">
       <div class="hero-badge h-seq s1"><span class="badge-pulse"></span>Available for new projects</div>
-      <h1 class="hero-name h-seq s2"><span class="grad-text">Your Business Never Sleeps. Neither Does Your AI.</span></h1>
+      <h1 class="hero-name h-seq s2"><span class="grad-text">AI receptionists that answer, capture leads and book appointments 24/7</span></h1>
       <div class="hero-role h-seq s3"><span class="accent">//</span> AI Automation Specialist</div>
       <div class="hero-tagline h-seq s3" id="tagline"></div>
-      <p class="hero-sub h-seq s4">Custom AI agents and chatbots that handle customer enquiries, <strong>capture leads and book appointments automatically</strong> 24/7.</p>
+      <p class="hero-sub h-seq s4">Built for dental clinics, law firms, real estate agencies and home service companies. <strong>Live on your website within 7 days.</strong></p>
       <div class="hero-btns h-seq s5">
         <a href="#contact" class="btn btn-primary magnetic" data-prefill-sample="1">Book a Free Demo
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h11M9 3.5L13.5 8 9 12.5"/></svg>
@@ -1658,34 +1713,6 @@
     </div>
   </div>
 </div>
-
-<!-- ════ STATS ════ -->
-<section id="stats">
-  <div class="stats-grid reveal">
-    <div class="stat-cell">
-      <div class="stat-num" data-count="24" data-suffix="/7">0/7</div>
-      <div class="stat-lbl">Always Available</div>
-      <div class="stat-track"><div class="stat-fill" data-width="100"></div></div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-num" data-count="7" data-suffix=" Days">0 Days</div>
-      <div class="stat-lbl">To Go Live</div>
-      <div class="stat-track"><div class="stat-fill" data-width="85"></div></div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-num" data-count="24" data-suffix="h">0h</div>
-      <div class="stat-lbl">Custom Proposal</div>
-      <div class="stat-track"><div class="stat-fill" data-width="80"></div></div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-num" data-count="4" data-suffix="+">0+</div>
-      <div class="stat-lbl">Countries Served</div>
-      <div class="stat-track"><div class="stat-fill" data-width="70"></div></div>
-    </div>
-  </div>
-</section>
-
-<div class="hairline"></div>
 
 <!-- ════ WHO I WORK WITH ════ -->
 <section id="niches">
@@ -1981,7 +2008,7 @@
           </div>
           <div class="linkedin-body">
             <div class="linkedin-avatar">
-              <img src="linkedin-avatar.jpeg" alt="Hardik Singh" onerror="this.style.display='none';" />
+              <img src="avatar-124.webp" alt="Hardik Singh" width="62" height="62" loading="lazy" decoding="async" onerror="this.style.display='none';" />
               <span class="linkedin-avatar-initials">HS</span>
             </div>
             <div class="linkedin-name">Hardik Singh <span class="linkedin-pronouns">He/Him</span></div>
@@ -2198,12 +2225,12 @@ document.addEventListener('click', e => {
   else smoothTo(top);
 });
 
-/* ════ Scroll reveals removed — content is always visible ════ */
+/* ════ Scroll reveals removed - content is always visible ════ */
 
 /* ════ Typewriter tagline ════ */
 (function () {
   const el = document.getElementById('tagline');
-  const text = 'Always On. Always Answering.\nNever Miss a Lead.';
+  const text = 'Your Business Never Sleeps.\nNeither Does Your AI.';
   if (reduceMotion) {
     el.innerHTML = text.replace('\n', '<br>');
     return;
@@ -2539,38 +2566,6 @@ form.addEventListener('submit', async e => {
   });
   gsap.from('.hero-visual', {
     y: 50, opacity: 0, duration: 1.2, ease: 'power3.out', delay: 0.55, clearProps: 'all'
-  });
-
-  /* 2 ── Scroll-in staggered rises */
-  function rise(targets, trigger, extra) {
-    const els = typeof targets === 'string' ? document.querySelectorAll(targets) : targets;
-    if (!els.length) return;
-    gsap.from(els, Object.assign({
-      scrollTrigger: { trigger: trigger, start: 'top 84%', once: true },
-      y: 44, opacity: 0, duration: 0.95, ease: 'power3.out', stagger: 0.11, clearProps: 'all'
-    }, extra || {}));
-  }
-  document.querySelectorAll('.section-head').forEach(h => {
-    rise(h.querySelectorAll(':scope > *:not(.ghost)'), h);
-  });
-  rise('.stat-cell', '#stats');
-  rise('.niche-card', '.niches-grid', { stagger: 0.06 });
-  rise('.service-card', '.services-grid');
-  rise('.tool-chip', '.tools-strip', { stagger: 0.06 });
-  rise('.price-card', '.pricing-grid');
-  rise('.step', '.process-steps');
-  rise('.faq-item', '#faq-wrap', { stagger: 0.05 });
-
-  /* 3 ── Parallax drift: terminal + ghost watermarks */
-  gsap.to('.term', {
-    scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 0.6 },
-    y: 100, ease: 'none'
-  });
-  document.querySelectorAll('.ghost').forEach(g => {
-    gsap.to(g, {
-      scrollTrigger: { trigger: g, start: 'top bottom', end: 'bottom top', scrub: 0.8 },
-      yPercent: 36, ease: 'none'
-    });
   });
 
   /* ── Failsafe: if the animation ticker is dead (throttled tab,
